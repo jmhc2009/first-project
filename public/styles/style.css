@@ -1,0 +1,39 @@
+.fa-trash-alt{
+    color: red;
+    font-size: large;
+}
+
+.fa-shopping-cart{
+    color: #349793;
+    font-size: medium;
+    text-align: center;
+    margin-top: 0.5em;
+}
+
+.card-product{
+    min-height: 500px;
+    background: #000;
+}
+
+.bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+ }
+
+ @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+ }
+.fa-check-circle{
+    color: lightseagreen;
+    font-size: xx-large;
+}
+.fa-times{
+    color: red;
+    font-size: xx-large;
+}
