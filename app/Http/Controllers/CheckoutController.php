@@ -32,6 +32,7 @@ class CheckoutController extends Controller
         else:
             $order->status = 'pagado';
 		endif;
+
 		$order->save();
 
         return RedirectorHelper::redirectBackNormal($result->urlRedirection);

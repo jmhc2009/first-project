@@ -29,9 +29,9 @@
                                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                                         <div>
                                             <h6 class="my-0">{{ $item->name }}</h6>
-                                            <small class="text-muted">{{ ($item->quantity) }} x $ {{number_format($item->price,2) }}</small>
+                                            <small class="text-muted">{{ ($item->quantity) }} x $ {{number_format($item->price,0) }}</small>
                                         </div>
-                                        <span class="text-muted">$ {{number_format($item->price * $item->quantity,2) }}</span>
+                                        <span class="text-muted">$ {{number_format($item->price * $item->quantity,0) }}</span>
                                     </li>
                                     @endforeach
                                     <li class="list-group-item d-flex justify-content-between bg-light">
@@ -43,16 +43,16 @@
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between">
                                         <span><strong>Neto</strong></span>
-                                        <strong>{{ number_format(Cart::getSubTotal(),2) }}</strong>
+                                        <strong>{{ number_format(Cart::getSubTotal(),0) }}</strong>
                                     </li>
 
                                     <li class="list-group-item d-flex justify-content-between">
                                         <span><strong>Iva (19%)</strong></span>
-                                        <strong>{{ number_format(Cart::getSubTotal()*0.19,2) }}</strong>
+                                        <strong>{{ number_format(Cart::getSubTotal()*0.19,0) }}</strong>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between">
                                         <span><strong>Total</strong></span>
-                                        <strong>$ {{ number_format(Cart::getSubTotal(),2) }}</strong>
+                                        <strong>$ {{ number_format(Cart::getSubTotal(),0) }}</strong>
                                     </li>
 
                                 </ul>
