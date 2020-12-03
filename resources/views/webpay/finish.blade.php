@@ -22,6 +22,7 @@
                         </div>
                     </div>
                         <h3 class="text-center">Lo sentimos tu pago no pudo ser procesado!!</h3>
+                        <a href="{{ route('welcome') }}"><-Volver a la tienda</a>
                     @endif
 
             </div>

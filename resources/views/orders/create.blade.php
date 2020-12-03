@@ -64,7 +64,7 @@
                                             <button type="submit" class="btn btn-primary">Aplicar</button>
                                         </div>
                                     </div>
-                                </form>
+                            </form>
                             </div>
                             <!--Formulario que solicita información del cliente-->
                             <div class="col-md-8 order-md-1">

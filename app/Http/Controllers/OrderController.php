@@ -77,7 +77,7 @@ class OrderController extends Controller
 
                 Cart::clear();
             //Redirige a pagar
-                    return view('orders.confirm');
+                    return view('webpay.checkout', compact('order'));
         else:
             //Redirige a comprar
             return redirect()->route('welcome');

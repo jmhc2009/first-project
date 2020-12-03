@@ -43,7 +43,7 @@ Route::delete('/cart-remouveitem','CartController@remouveitem')->name('cart.remo
 Route::delete('/cart-clear', 'CartController@clear')->name('cart.clear');
 
 // routes webpay
-Route::get('/checkout', 'CheckoutController@initTransaction')->name('checkout');  
+Route::post('/checkout', 'CheckoutController@initTransaction')->name('checkout');  
 Route::post('/checkout/webpay/response', 'CheckoutController@response')->name('checkout.webpay.response');  
 Route::post('/checkout/webpay/finish', 'CheckoutController@finish')->name('checkout.webpay.finish');
 

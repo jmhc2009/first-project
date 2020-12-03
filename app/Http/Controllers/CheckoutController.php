@@ -12,8 +12,11 @@ class CheckoutController extends Controller
 {
     public function initTransaction(WebpayNormal $webpayNormal)
 	{
-        $order=Order::first();
-		$webpayNormal->addTransactionDetail($order->total, 'order-' . $order->id);
+		$order=Order::first();
+		$total=$order->total;
+		$oc=$order->id;
+
+		$webpayNormal->addTransactionDetail($total, 'order-' . $oc);
 		$response = $webpayNormal->initTransaction(route('checkout.webpay.response'), route('checkout.webpay.finish'));
 		// Probablemente también quieras crear una orden o transacción en tu base de datos y guardar el token ahí.
 
@@ -22,7 +25,7 @@ class CheckoutController extends Controller
 
 	public function response(WebpayPatPass $webpayPatPass)
 	{
-	  $result = $webpayPatPass->getTransactionResult();
+	  $result = $webpayPatPass->getTransactionResult();+
 	  $order=Order::first();
 	  session(['response' => $result]);
 	  // Revisar si la transacción fue exitosa ($result->detailOutput->responseCode === 0) o fallida para guardar ese resultado en tu base de datos.
@@ -46,3 +49,4 @@ class CheckoutController extends Controller
         return view('webpay.finish',compact('order'));
 	}
 }
+
