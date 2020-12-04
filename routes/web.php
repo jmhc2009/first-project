@@ -28,6 +28,7 @@ Route::get('/', 'HomeController@welcome')->name('welcome');
 Route::get('/home', 'HomeController@index')->name('home');  
 Route::view('/contacto', 'contact')->name('contact');
 
+//Routes resources
 Route::resource('user', 'UserController');
 
 Route::resource('product', 'ProductController');

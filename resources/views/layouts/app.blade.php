@@ -27,7 +27,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm fixed-top">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark color-primary shadow-sm fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'CAFperfumes') }}
@@ -41,36 +41,36 @@
                     <ul class="navbar-nav ml-auto">
                         <!--menu-->
                         <li class="nav-item">
-                            <a href="{{ route('welcome') }}" class="nav-link">Inicio</a>                
-                        </li>  
+                            <a href="{{ route('welcome') }}" class="nav-link">Inicio</a>
+                        </li>
                          <!--Submenu-->
-                        
-                        <li class="nav-item dropdown">                            
+
+                        <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" id="menu-categorias" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Categorías
-                            </a> 
-                            <div class="dropdown-menu" aria-labelledby="menu-categorias">                                
-                                <a href="#" class="dropdown-item">Mujeres</a>  
-                                <a href="#" class="dropdown-item">Hombres</a> 
-                                <a href="#" class="dropdown-item">Niñas</a> 
-                                <a href="#" class="dropdown-item">Niños</a>                                                                         
-                            </div>                        
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="menu-categorias">
+                                <a href="#" class="dropdown-item">Mujeres</a>
+                                <a href="#" class="dropdown-item">Hombres</a>
+                                <a href="#" class="dropdown-item">Niñas</a>
+                                <a href="#" class="dropdown-item">Niños</a>
+                            </div>
                         </li>
-                       
+
                         <li class="nav-item">
-                            <a href="{{ route('contact') }}" class="nav-link">Contacto</a>                
-                        </li> 
+                            <a href="{{ route('contact') }}" class="nav-link">Contacto</a>
+                        </li>
                             <form action="" class="form-inline my-2-lg-0">
                                 <input type="text" class="form-control mr-sm-2" placeholder="Buscar" aria-label="Buscar">
                                 <button class="btn btn-primary my-2 my-sm-0">Buscar</button>
                             </form>
 
-                        
+
                             <!--Botón para ver el carrito -->
                             <li class="nav-item ml-5">
                             @if (count(Cart::getContent()))
-                                <a href="{{ route('cart.checkout') }}"><i class="fas fa-shopping-cart"></i><span class="badge badge-danger">{{ count(Cart::getContent()) }}</span></a>                          
-                            @endif              
+                                <a href="{{ route('cart.checkout') }}"><i class="fas fa-shopping-cart"></i><span class="badge badge-danger">{{ count(Cart::getContent()) }}</span></a>
+                            @endif
                             </li>
 
                     </ul>
@@ -78,11 +78,11 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Acceso al panel de administración/Muestra el home -->
-                @if(auth()->check())                        
+                @if(auth()->check())
                     @if(auth()->user()->hasRoles('admin'))
                         <li class="nav-item">
-                            <a href="{{ route('home') }}" class="nav-link">Home</a>                
-                        </li>  
+                            <a href="{{ route('home') }}" class="nav-link">Home</a>
+                        </li>
                     @endif
                 @endif
 
@@ -118,7 +118,7 @@
                     </ul>
                 </div>
             </div>
-        </nav>  
+        </nav>
 
         <main class="py-4">
             @yield('content')
