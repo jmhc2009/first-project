@@ -69,7 +69,7 @@
                             <!--Botón para ver el carrito -->
                             <li class="nav-item ml-5">
                             @if (count(Cart::getContent()))
-                                <a href="{{ route('cart.checkout') }}"><i class="fas fa-shopping-cart"></i><span class="badge badge-danger">{{ count(Cart::getContent()) }}</span></a>
+                                <a href="{{ route('cart.checkout') }}"><i class="fas fa-shopping-cart carrito"></i><span class="badge badge-danger">{{ count(Cart::getContent()) }}</span></a>
                             @endif
                             </li>
 
@@ -129,9 +129,12 @@
 			<div class="col">
 				<h3 class="lead">CAFperfumes</h3>
 				<a href="#" class="btn btn-link">Acerca de</a>
-				<a href="#" class="btn btn-link">Contacto</a>
+                <a href="{{ route('contact') }}" class="btn btn-link">Contacto</a>
+                <a href="#" class="btn btn-link">Teléfono: +56964144105</a>
+                
 			</div>
 			<div class="col text-right">
+                
 				<a href="#" class="btn btn-link">Subir en Pagina</a>
 			</div>
 		</div>

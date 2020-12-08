@@ -29,7 +29,7 @@
     </a>
 </div>
 {{-- Contenido principal --}}
-<main class="container bg-light">
+<main class="container bg-white">
     <div class="row">
         <div class="col-12">
             <div class="py-4 border-bottom">

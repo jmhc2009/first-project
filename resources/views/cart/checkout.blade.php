@@ -4,9 +4,11 @@
 
 
 <div class="container">
+    <div class="card">
+        <div class="card-body">
     <div class="row">
         <div class="col-8">
-            <h3>Carrito de compras</h3>
+            <h3 class="text-center">Carrito de compras</h3>
             @if(Cart::getContent()->count()>0)
             <div class="col sm-6 ">
                 {{-- Vacía el carrito --}}
@@ -27,7 +29,7 @@
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody >
                     {{-- Muestra la información en el carrito al precionar el botón agregar al carrito --}}
                     @foreach (Cart::getContent() as $item)
                         <tr>
@@ -55,14 +57,18 @@
             <div class="container">
                 <div class="row ">
                     <div class="col sm-6 p-4">
-                        @if(auth()->check())
-                            @auth
-                                <a  class="btn btn-success " href="/order/create">Realizar pedido</a>
-                            @endauth
-                        @else
-                            <a  class="btn btn-outline-success " href="/login">Realizar pedido</a>
-                        @endif
-                        <a class="btn btn-link" href="{{ route('welcome') }}"><-Seguir comprando</a>
+                        
+                        <div class="d-flex justify-content-end d-block ">
+                            <a class="btn btn-link" href="{{ route('welcome') }}"><-Seguir comprando</a>
+                            @if(auth()->check())
+                                @auth
+                                    <a  class="btn btn-outline-success" href="/order/create">Realizar pedido</a>
+                                @endauth
+                            @else
+                                <a  class="btn btn-outline-success" href="/login">Realizar pedido</a>
+                            @endif
+                            
+                        </div>
                     </div>
                 </div>
             </div>
@@ -77,5 +83,7 @@
             @endif
         </div>
     </div>
+</div>
+</div>
 </div>
 @endsection
