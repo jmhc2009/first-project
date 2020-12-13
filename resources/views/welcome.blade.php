@@ -54,9 +54,9 @@
                         <img class="card-img-top" src="{{ Storage::url($product->image) }}" alt="">
                     </a>
                     <div class="card-body">
-                        <h4 class="card-title">{{ $product->name }}</h4>
-                        <p class="card-text">Precio retail $ {{ $product->priceRetail }}</p>
+                        <h4 class="card-title">{{ $product->name }}</h4>                        
                         <h5 class="card-text ">Precio $ {{ $product->price }}</h5>
+                        <p class="card-text">Precio retail $ {{ $product->priceRetail }}</p>
                         <p class="card-text">Cuotas 3 x {{ number_format($product->price/3,0) }} sin
                             interés</p>
                         {{-- Agregar producto al carrito --}}

@@ -1,3 +1,3 @@
-@if('success')
+@if('succes')
     {{ session('status') }}                
 @endif
