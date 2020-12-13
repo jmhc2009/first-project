@@ -55,7 +55,7 @@ class ProductController extends Controller
         $product->save();
 
 
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->back()->with('status',"Producto creado con éxito!");
     }
 
     /**
@@ -113,7 +113,7 @@ class ProductController extends Controller
                        
         ]);
 
-        return redirect()->route('product.show', $product);        
+        return redirect()->route('product.show', $product)->back()->with('status',"Producto actualizado con éxito!");        
     }
 
     /**
@@ -126,7 +126,7 @@ class ProductController extends Controller
     {
         Product::destroy($id);
 
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->back()->with('status',"Producto eliminado con éxito!");
     }
     
    

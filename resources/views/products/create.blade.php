@@ -8,6 +8,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Create product') }}</div>
+                {{-- Mensaje --}}
+                @include('partials.session-status')
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('product.store') }}" enctype="multipart/form-data">

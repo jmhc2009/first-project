@@ -42,9 +42,10 @@
         <a href="{{ route('cart.checkout') }}">Ver carrito <i class="fas fa-shopping-cart"></i><span
                 class="badge badge-danger">{{ count(Cart::getContent()) }}</span></a>
     @endif
+    {{-- Mensaje, producto agregado al carrito --}}
+    @include('partials.session-status')
 
-
-        <div class="row py-4">
+        <div class="row py-4">            
             {{-- Muestra detalles del producto --}}
             @foreach($products as $product)
             <div class="col-12 col-sm-6 col-lg-3 mb-4">

@@ -41,7 +41,7 @@ class CategoryController extends Controller
             'name'=> request('name')
             
         ]);
-        return redirect()->route('home');
+        return back()->with('status',"Categoría creada con éxito!");
     }
 
     /**
@@ -84,7 +84,7 @@ class CategoryController extends Controller
             'name'=>request('name')
         ]);
 
-        return redirect()->route('category.index'); 
+        return ->back()->with('status',"Categoría actualizada con éxito!"); 
         
     }
 
@@ -98,6 +98,6 @@ class CategoryController extends Controller
     {
         Category::destroy($id);
 
-        return redirect()->route('category.index');
+        return back()->with('status',"La categoria ha sido eliminada!");
     }
 }

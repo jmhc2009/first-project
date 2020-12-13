@@ -18,8 +18,8 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('category_id')->nullable()->onDelete('cascade');
             $table->string('name');
             $table->text('description');
-            $table->float('price', 100, 2);
-            $table->float('priceRetail', 100, 2);
+            $table->integer('price');
+            $table->integer('priceRetail');
             $table->integer('stock');
             $table->string('offer');
             $table->date('date');

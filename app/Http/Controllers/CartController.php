@@ -32,8 +32,7 @@ class CartController extends Controller
             array('image'=>$product->image)
                        
         );
-
-        return back()->with('success',"$product->name ¡se ha agregado al carrito!");
+        return back()->with('status',"$product->name ¡se ha agregado al carrito!");
     }   
 
     public function remouveitem(Request $request)
@@ -44,7 +43,7 @@ class CartController extends Controller
         Cart::remove([
             'id'=> $request->id]);
 
-        return back()->with('success',"Producto eliminado del carrito!");
+        return back()->with('status',"Producto eliminado del carrito!");
     }
     
     public function clear()
@@ -52,7 +51,7 @@ class CartController extends Controller
     {
         Cart::clear();
 
-        return back()->with('success',"¡Carrito vacío!");
+        return back()->with('status',"¡Carrito vacío!");
     }
 
     
