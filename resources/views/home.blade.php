@@ -16,7 +16,7 @@
 @section('js')
     <script> Swal.fire(
         'Bienvenido!',
-        'You clicked the button!',
+        'Click en el botón para cerrar!',
         'success'
       ); </script>
 @stop

@@ -12,8 +12,10 @@
     "devDependencies": {
         "axios": "^0.19",
         "bootstrap": "^4.0.0",
+        "browser-sync": "^2.26.13",
+        "browser-sync-webpack-plugin": "^2.0.1",
         "cross-env": "^7.0",
-        "jquery": "^3.2",
+        "jquery": "^3.5.1",
         "laravel-mix": "^5.0.1",
         "lodash": "^4.17.19",
         "popper.js": "^1.12",
@@ -25,6 +27,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^5.15.1"
+        "@fortawesome/fontawesome-free": "^5.15.1",
+        "toastr": "^2.1.4"
     }
 }

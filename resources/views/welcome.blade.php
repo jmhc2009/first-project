@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+{{-- Notificaciones con toastr --}}
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css"/>
+   <!--@toastr_css-->
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -28,36 +31,41 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
+
 {{-- Contenido principal --}}
-<main class="container bg-white">
-    <div class="row">
-        <div class="col-12">
-            <div class="py-4 border-bottom">
-                <h1 class="text-center">PERFUMES DESTACADOS</h1>
+<main class="container mt-3 bg-white p-3">
+
+    <!--buscador-->
+
+    <div class="container search mt-3 shadow">
+        <div class="row">
+            <div class="col-9 p-4 m-auto">
+                <form class="d-flex" method="GET" action="{{ route('welcome') }}" id="search" name="search">
+                    <input class="form-control me-2" type="search" placeholder="Ingresa una fragancia" aria-label="Search">
+                    <button class="btn btn-primary" type="submit">Buscar</button>
+                  </form>
             </div>
         </div>
     </div>
-    {{-- Muestra los porductos agregados al carro --}}
+    {{-- Muestra el carrito --}}
+    @include('partials.session-status')
     @if(count(Cart::getContent()))
         <a href="{{ route('cart.checkout') }}">Ver carrito <i class="fas fa-shopping-cart"></i><span
                 class="badge badge-danger">{{ count(Cart::getContent()) }}</span></a>
     @endif
-    {{-- Mensaje, producto agregado al carrito --}}
-    @include('partials.session-status')
-
-        <div class="row py-4">            
+        <div class="row py-4">
             {{-- Muestra detalles del producto --}}
-            @foreach($products as $product)
+            @forelse($products as $product)
             <div class="col-12 col-sm-6 col-lg-3 mb-4">
                 <div class="card card-product">
                     <a href="{{ route('product.show',$product) }}" class="#">
                         <img class="card-img-top" src="{{ Storage::url($product->image) }}" alt="">
                     </a>
                     <div class="card-body">
-                        <h4 class="card-title">{{ $product->name }}</h4>                        
+                        <h4 class="card-title">{{ $product->name }}</h4>
                         <h5 class="card-text ">Precio $ {{ $product->price }}</h5>
                         <p class="card-text">Precio retail $ {{ $product->priceRetail }}</p>
-                        <p class="card-text">Cuotas 3 x {{ number_format($product->price/3,0) }} sin
+                        <p class="card-text">Cuotas 3 x {{ number_format($product->price/3) }} sin
                             interés</p>
                         {{-- Agregar producto al carrito --}}
                         <form action="{{ route('cart.add') }}" method="POST">
@@ -68,9 +76,21 @@
                     </div>
                 </div>
             </div>
-            @endforeach
+            @empty
+            @endforelse
         </div>
     {{ $products->links() }}
-</main>
 
+<!--    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>-->
+   {{-- @if(Session::has('status'))
+        <script>
+            toastr.success("{!! Session::get('status') !!}");
+        </script>
+    @endif
+    --}}
+</main>
+<!--    @jquery
+    @toastr_js
+    @toastr_render-->
 @endsection

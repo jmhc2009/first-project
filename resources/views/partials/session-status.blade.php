@@ -1,3 +1,6 @@
-@if('succes')
-    {{ session('status') }}                
+
+
+@if('status')
+    {{ session('status') }}
 @endif
+

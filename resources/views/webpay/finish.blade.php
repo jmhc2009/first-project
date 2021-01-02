@@ -18,11 +18,17 @@
                     @else
                     <div class="container">
                         <div class="row">
-                            <div class="col text-center mb-3 font-weight-bold"><i class="fas fa-times"></i></div>
+                            <div class="col text-center m-5 font-weight-bold">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
                         </div>
                     </div>
+                    <div class="text-center mb-5">
                         <h3 class="text-center">Lo sentimos tu pago no pudo ser procesado!!</h3>
-                        <a href="{{ route('welcome') }}"><-Volver a la tienda</a>
+                    </div>
+                    <div class="text-center m-5">
+                        <a class="text-center" href="{{ route('welcome') }}"><-Volver a la tienda</a>
+                    </div>
                     @endif
 
             </div>

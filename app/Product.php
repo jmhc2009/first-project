@@ -5,10 +5,10 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
-{    
+{
     protected $table = 'products';
-    protected $fillable = ['category_id','name','title', 'description', 'price','priceRetail','stock','offer','date','image'];     
-    
+    protected $fillable = ['category_id','name','title', 'description', 'price','priceRetail','stock','offer','date','image'];
+
     public function user()
     {
          //Relación muchos a uno
@@ -27,5 +27,5 @@ class Product extends Model
         return $this->belongsToMany('App\Order')->withTimestamps();
     }
 
-   
+
 }

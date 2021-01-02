@@ -51,12 +51,14 @@ body{
 }
 
 .container .search{
-    margin-top: 50px;
-    background: #000;
+    margin-top: 50px;    
+    padding: 0px;
+    border-radius: 3px;
+    border: #dcdcdd 1px solid;
 }
 
 .boton{
-    background: #000;
+    background: #349793;
 }
 
 

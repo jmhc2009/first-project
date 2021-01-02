@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('title','checkout')
 @section('content')
-
 <div class="container">
     <div class="row">
         <div class="col">
@@ -10,11 +9,11 @@
                 <body class="bg-light">
                     <div class="container">
                         <div class="py-5 text-center">
-                            <img class="d-block mx-auto mb-4" src="images/logo.jpg" alt="" width="72" height="72">
+                            <img class="d-block mx-auto mb-4" src="/images/logo.jpg" alt="" width="200" height="200">
                             <h2>Formulario de pedido</h2>
                             <p class="lead">Por favor ingrese la siguente información para el envío de su pedido.</p>
                         </div>
-                        <!--Resumen del carrito-->
+ <!--Resumen del carrito-->
                         <div class="row">
                             <div class="col-md-4 order-md-2 mb-4">
                                 <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -56,7 +55,7 @@
                                     </li>
 
                                 </ul>
-                                <!--Ingreo de código promocional-->
+<!--Ingreo de código promocional-->
                             <form class="card p-2">
                                     <div class="input-group">
                                         <input type="text" class="form-control" placeholder="Ingresar código">
@@ -66,7 +65,9 @@
                                     </div>
                             </form>
                             </div>
-                            <!--Formulario que solicita información del cliente-->
+<!-- Fin resumen carrito, codigo promocional -->
+
+  <!--Formulario que solicita información del cliente-->
                             <div class="col-md-8 order-md-1">
                                 <h4 class="mb-3">Información para el envío y facturación</h4>
                                 <form method="POST" action="{{ route('order.store') }}"
@@ -167,8 +168,9 @@
                                             la próxima
                                             vez</label>
                                     </div>
+<!--Fin formulario despacho-->
                                     <hr class="mb-4">
-
+<!--Formas de pago-->
                                     <h4 class="mb-3">Forma de pago</h4>
 
                                     <div class="d-block my-3">
@@ -188,68 +190,21 @@
                                             <label class="custom-control-label" for="paypal">PayPal</label>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-6 mb-3">
-                                            <label for="cc-name">Name on card</label>
-                                            <input type="text" class="form-control" id="cc-name" placeholder=""
-                                                required>
-                                            <small class="text-muted">Full name as displayed on card</small>
-                                            <div class="invalid-feedback">
-                                                Name on card is required
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="cc-number">Credit card number</label>
-                                            <input type="text" class="form-control" id="cc-number" placeholder=""
-                                                required>
-                                            <div class="invalid-feedback">
-                                                Credit card number is required
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3 mb-3">
-                                            <label for="cc-expiration">Expiration</label>
-                                            <input type="text" class="form-control" id="cc-expiration" placeholder=""
-                                                required>
-                                            <div class="invalid-feedback">
-                                                Expiration date required
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 mb-3">
-                                            <label for="cc-cvv">CVV</label>
-                                            <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                                            <div class="invalid-feedback">
-                                                Security code required
-                                            </div>
-                                        </div>
-                                    </div>
+<!--Fin formas de pago-->
+
                                     <hr class="mb-4">
 
+<!--Boton ir a pagar-->
                                     <button class="btn btn-primary btn-lg btn-block" type="submit">Ir a pagar</button>
                                 </form>
                                 {{-- Procesar pago --}}
-
-
-
                                 <hr class="mb-4">
                             </div>
                         </div>
+                    </div>
                 </body>
-
-                <footer class="my-5 pt-5 text-muted text-center text-small">
-                    <p class="mb-1">&copy; 2013-2020 CAFperfumes</p>
-                    <ul class="list-inline">
-                        <li class="list-inline-item"><a href="#">Politicas</a></li>
-                        <li class="list-inline-item"><a href="#">Terminos y condiciones</a></li>
-                        <li class="list-inline-item"><a href="#">Soporte</a></li>
-                    </ul>
-                </footer>
-
-
             </div>
         </div>
     </div>
 </div>
-
 @endsection

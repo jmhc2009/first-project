@@ -47,7 +47,7 @@ return [
 
     'logo' => '<b>CAF</b>perfumes',
     'logo_img' => 'vendor/adminlte/dist/img/logo1.jpg',
-    'logo_img_class' => 'brand-image img-circle elevation-3',
+    'logo_img_class' => 'vendor/adminlte/dist/img/logo1.jpg',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'CAFperfumes',
@@ -238,16 +238,16 @@ return [
         ],
         [
             'text' => 'Usuarios',
-            'route' => 'user.index',                    
+            'route' => 'user.index',
             'icon'=>'fas fa-users'
         ],
-       
+
         [
             'text' => 'Categorías',
-            'route' => 'category.index',                    
+            'route' => 'category.index',
             'icon'=>'far fa-list-alt'
         ],
-       
+
         [
             'text' => 'Crear categoría',
             'route' => 'category.create',
@@ -257,17 +257,17 @@ return [
         [
             'text' => 'Crear producto',
             'route' => 'product.create',
-            'topnav' => true,                    
+            'topnav' => true,
             'icon'=>'fas fa-plus'
         ],
         [
             'text' => 'Productos',
-            'route' => 'product.index',                    
+            'route' => 'product.index',
             'icon'=>'far fa-list-alt'
         ],
         [
             'text' => 'Pedidos',
-            'route' => 'order.index',                    
+            'route' => 'order.index',
             'icon'=>'far fa-list-alt'
         ],
         [
@@ -299,17 +299,17 @@ return [
             'submenu' => [
                 [
                     'text' => 'Listado de productos',
-                    'route' => 'product.index',                    
+                    'route' => 'product.index',
                     'icon'=>'far fa-list-alt'
                 ],
                 [
                     'text' => 'Crear producto',
-                    'route' => 'product.create',                    
+                    'route' => 'product.create',
                     'icon'=>'fas fa-plus'
                 ],
                 [
                     'text' => 'Editar producto',
-                    //'route' => 'product.edit',                    
+                    //'route' => 'product.edit',
                     'icon'=>'far fa-edit'
                 ],
                 [

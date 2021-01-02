@@ -29,12 +29,13 @@ class HomeController extends Controller
 
     public function welcome()
     {
-        $categories = Category::all();
-        $products = Product::paginate(16);
-        return view('welcome',[
-            'products'=>$products,
-            'categories'=>$categories
-        ]);
+            $categories = Category::all();
+            $products = Product::paginate(16);
+            return view('welcome',[
+                'products'=>$products,
+                'categories'=>$categories
+            ]); 
+           
 
     }
 
