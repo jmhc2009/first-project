@@ -12,10 +12,15 @@ use Cart;
 class CheckoutController extends Controller
 {
     public function initTransaction(WebpayNormal $webpayNormal)
-	{
-		$order=Order::first();
-		$total=$order->total;
-		$oc=$order->id;
+	{   /*Se obtien eltotal del carro y elnúmero de pedido*/
+	     if(Cart::getContent()->count()>0):
+             $total = Cart::getSubTotal();
+             $order=Order::all()->last();
+             $oc=$order->cod;
+		else:
+            //Redirige a comprar
+            return redirect()->route('welcome');
+        endif;
 
 
 		$webpayNormal->addTransactionDetail($total, 'order-' . $oc);
@@ -28,18 +33,15 @@ class CheckoutController extends Controller
 	public function response(WebpayPatPass $webpayPatPass)
 	{
 	  $result = $webpayPatPass->getTransactionResult();
-	  $order=Order::first();
 	  session(['response' => $result]);
 	  // Revisar si la transacción fue exitosa ($result->detailOutput->responseCode === 0) o fallida para guardar ese resultado en tu base de datos.
-
+        $order=Order::all()->last();
         if($result->detailOutput->responseCode === 0):
             $order->status = 'pagado';
         else:
             $order->status = 'noPagado';
 		endif;
-
 		$order->save();
-
         return RedirectorHelper::redirectBackNormal($result->urlRedirection);
 	}
 
@@ -47,10 +49,11 @@ class CheckoutController extends Controller
 	{
 	    //dd($_POST,session('response'));
 	    // Acá buscar la transacción en tu base de datos y ver si fue exitosa o fallida, para mostrar el mensaje de gracias o de error según corresponda
-        $order=Order::first();
-        if($order->status !=='pagado'):
-            Order::destroy($order);
+        $order=Order::all()->last();
+        if($order->status ==='noPagado'):
+            Order::destroy($order->id);
         endif;
+        Cart::clear();
         return view('webpay.finish',compact('order'));
 	}
 }

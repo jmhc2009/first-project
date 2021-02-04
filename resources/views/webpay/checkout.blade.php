@@ -9,9 +9,9 @@
             <div class="card">
                 <div class="card-body">
 
-                    <h2>Pago con webpay</h2>
+                    <h2>Pagar con webpay</h2>
                     <p><b>Valor</b>: $ {{ $order->total }}</p>
-                    <p><b>Orden de compra</b>: {{ $order->id }}</p>
+                    <p><b>Orden de compra</b>: {{ $order->cod }}</p>
 
 
                     <form method="POST" action="{{ route('checkout') }}">

@@ -185,6 +185,11 @@
                                             <label class="custom-control-label" for="debit">Tarjeta de débito</label>
                                         </div>
                                         <div class="custom-control custom-radio">
+                                            <input id="transferencia" name="paymentMethod" type="radio"
+                                                class="custom-control-input" required>
+                                            <label class="custom-control-label" for="transferencia">Transferencia bancaria</label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
                                             <input id="paypal" name="paymentMethod" type="radio"
                                                 class="custom-control-input" required>
                                             <label class="custom-control-label" for="paypal">PayPal</label>

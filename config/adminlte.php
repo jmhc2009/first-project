@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'CAFperfumes',
+    'title' => 'Perfumes',
     'title_prefix' => '',
     'title_postfix' => '| CAFperfumes ',
 
@@ -47,7 +47,7 @@ return [
 
     'logo' => '<b>CAF</b>perfumes',
     'logo_img' => 'vendor/adminlte/dist/img/logo1.jpg',
-    'logo_img_class' => 'vendor/adminlte/dist/img/logo1.jpg',
+    //'logo_img_class' => 'vendor/adminlte/dist/img/logo1.jpg',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'CAFperfumes',
