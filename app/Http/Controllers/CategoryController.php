@@ -84,7 +84,7 @@ class CategoryController extends Controller
             'name'=>request('name')
         ]);
 
-        return ->back()->with('status',"Categoría actualizada con éxito!"); 
+        return back()->with('status',"Categoría actualizada con éxito!"); 
         
     }
 

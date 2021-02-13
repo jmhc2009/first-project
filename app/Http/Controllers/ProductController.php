@@ -18,10 +18,10 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {         
+    {
         return view('products.index',[
             'products'=>Product::orderBy('id','desc')->get()
-        ]);  
+        ]);
 
     }
 
@@ -31,8 +31,8 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
-        $categories = Category::all();        
+    {
+        $categories = Category::all();
 
         return view('products.create', compact('categories'));
     }
@@ -44,18 +44,16 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(CreateProductRequest  $request)
-    {   
+    {
         $product = Product::create($request->validated());
 
         if($request->hasFile('image'))
         {
             $product->image = $request->file('image')->store('public');
-
         }
         $product->save();
 
-
-        return redirect()->route('product.index')->back()->with('status',"Producto creado con éxito!");
+        return back()->with('status',"Producto creado con éxito!");
     }
 
     /**
@@ -65,11 +63,11 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {         
-            $product = Product::findOrFail($id);       
+    {
+            $product = Product::findOrFail($id);
             return view('products.show',[
-                'product'=>$product                 
-            ]);        
+                'product'=>$product
+            ]);
     }
 
     /**
@@ -80,8 +78,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $categories = Category::all();  
-                
+        $categories = Category::all();
+
         return view('products.edit', [
             'product'=>$product,
             'categories'=>$categories
@@ -95,8 +93,8 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) 
-    {   
+    public function update(Request $request, $id)
+    {
         $product = Product::findOrFail($id);
 
         $product->image = $request->file('image')->store('public');
@@ -109,11 +107,12 @@ class ProductController extends Controller
             'priceRetail'=>request('priceRetail'),
             'stock'=>request('stock'),
             'offer'=>request('offer'),
-            'date'=>request('date')
-                       
+            'date'=>request('date'),
+            'image'=>request('image')
+
         ]);
 
-        return redirect()->route('product.show', $product)->back()->with('status',"Producto actualizado con éxito!");        
+        return back()->with('status',"Producto actualizado con éxito!");
     }
 
     /**
@@ -126,8 +125,8 @@ class ProductController extends Controller
     {
         Product::destroy($id);
 
-        return redirect()->route('product.index')->back()->with('status',"Producto eliminado con éxito!");
+        return redirect()->route('product.index')->with('status',"Producto eliminado con éxito!");
     }
-    
-   
+
+
 }

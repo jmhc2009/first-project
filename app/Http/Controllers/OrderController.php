@@ -44,8 +44,8 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+         //si existen productos en el carro, procesar pedido
         if(Cart::getContent()->count()>0):
-            //si existen productos en el carro, procesar pedido
             $order = new Order();
             $order->user_id = Auth::user()->id;
             $order->phone = request('phone');
@@ -54,9 +54,9 @@ class OrderController extends Controller
             $order->city = request('city');
             $order->message = request('message');
             $order->paymentMethod = request('paymentMethod');
-            $order->subTotal = Cart::getSubTotal();
+            $order->subTotal = Cart::getSubTotal()/1.19;
             $order->impuesto = Cart::getSubTotal()*0.19;
-            $order->total = Cart::getSubTotal()*1.19;
+            $order->total = Cart::getSubTotal();
             $order->status = 0;
             $order->cod = time();
 
@@ -71,15 +71,12 @@ class OrderController extends Controller
                     $product_id => [
                         'units'=>$units
                         ]
-
                     ]);
             endforeach;
-
-                Cart::clear();
-            //Redirige a pagar
+            //Redirige a pagar con webpay
                     return view('webpay.checkout', compact('order'));
         else:
-            //Redirige a comprar
+            //Redirige a la tienda a comprar
             return redirect()->route('welcome');
         endif;
     }

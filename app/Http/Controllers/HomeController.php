@@ -34,8 +34,7 @@ class HomeController extends Controller
             return view('welcome',[
                 'products'=>$products,
                 'categories'=>$categories
-            ]); 
-           
+            ]);            
 
     }
 

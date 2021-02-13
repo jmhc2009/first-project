@@ -35,6 +35,8 @@ Route::resource('order','OrderController');
 Route::post('/cart-add', 'CartController@add')->name('cart.add');
 Route::post('/cart-upitem', 'CartController@upitem')->name('cart.upitem');
 Route::post('/cart-downitem', 'CartController@downitem')->name('cart.downitem');
+Route::post('/cart-updateitem', 'CartController@updateitem')->name('cart.updateitem');
+
 Route::get('/cart-checkout', 'CartController@cart')->name('cart.checkout');
 Route::delete('/cart-remouveitem','CartController@remouveitem')->name('cart.remouveitem');
 Route::delete('/cart-clear', 'CartController@clear')->name('cart.clear');
@@ -43,11 +45,3 @@ Route::delete('/cart-clear', 'CartController@clear')->name('cart.clear');
 Route::post('/checkout', 'CheckoutController@initTransaction')->name('checkout');
 Route::post('/checkout/webpay/response', 'CheckoutController@response')->name('checkout.webpay.response');
 Route::post('/checkout/webpay/finish', 'CheckoutController@finish')->name('checkout.webpay.finish');
-
-
-
-
-
-
-
-
