@@ -50,16 +50,17 @@
                                     <div class="input-group">
                                         @if (auth()->check())
                                             @auth
-                                                <a class="btn btn-primary btn-xs btn-block btn" href="/order/create">Realizar
+                                                <a class="btn btn-dark btn-xs btn-block btn-cart" href="/order/create">Realizar
                                                     pedido</a>
                                             @endauth
                                         @else
-                                            <a class="btn btn-primary btn-xs btn-block" href="/login">Realizar
+                                            <a class="btn btn-outline-dark btn-block btn-cart" href="/login">Realizar
                                                 pedido</a>
                                         @endif
                                         <div class="d-flex justify-content-end d-block mt-2">
-                                            <a class="btn btn-link" href="{{ route('welcome') }}">
-                                                <- Volver a la tienda</a>
+                                            <a class="btn btn-link" href="{{ route('welcome') }}"><i
+                                                    class="fas fa-chevron-circle-left"></i>
+                                                Seguir comprando</a>
                                         </div>
                                     </div>
                                 </div>
@@ -67,13 +68,16 @@
 
                                 <!-- Inicio carrito de compras-->
                                 <div class="col-md-8 order-md-1">
-                                    <h4 class="text-center mt-3">Carrito de compras </h4>
+                                    <h4 class="text-center mt-3"><i class="fas fa-shopping-cart"></i><b> Carrito de
+                                            compras</b>
+                                    </h4>
                                     @if (Cart::getContent()->count() > 0)
                                         <div class="col sm-6 mb-3 ">
                                             <!--  Vacía el carrito -->
                                             <form method="POST" action="{{ route('cart.clear') }}">
                                                 @csrf @method('DELETE')
-                                                <button class="btn btn-outline-primary btn-xs" type="submit">Vaciar el
+                                                <button class="btn btn-outline-dark btn-xs btn-cart" type="submit"><i
+                                                        class="fas fa-trash-alt"></i> Vaciar el
                                                     carrito
                                                 </button>
                                             </form>
@@ -84,62 +88,56 @@
                                             <table class="table table-hover table-responsive-lg">
                                                 <thead>
                                                     <tr>
-                                                        <th></th>
-                                                        <th>Producto</th>
-                                                        <th>Precio</th>
-                                                        <th>Cantidad</th>
-                                                        <th>Subtotal</th>
+                                                        <th class="text-center">Imagen</th>
+                                                        <th class="text-center">Producto</th>
+                                                        <th class="text-center">Precio</th>
+                                                        <th class="text-center">Cantidad</th>
+                                                        <th class="text-center">Subtotal</th>
                                                         <th></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     @foreach (Cart::getContent() as $item)
                                                         <tr>
-
+                                                            {{-- imagen del producto en el carrito --}}
                                                             <td><img src="{{ Storage::url($item->attributes->image) }}"
-                                                                    width="80px" alt="Sin imagen"></td>
+                                                                    width="100px" alt="imagen producto"></td>
                                                             <td class="align-self-center"> {{ $item->name }}</td>
-                                                            <td> $ {{ $item->price }}</td>
+                                                            <td> ${{ $item->price }}</td>
                                                             <!--Aumentar o disminuir unidades-->
                                                             <td>
                                                                 {{-- Agregar varios
                                                                 producto al
                                                                 carrito --}}
-                                                                <form action="{{ route('cart.updateitem') }}" method="POST">
+                                                                <form action="{{ route('cart.updateitem') }}"
+                                                                    method="POST">
                                                                     @csrf
-                                                                    <input type="hidden" name="id" value="{{ $item->id }}">
-                                                                    <input type="number" value="{{ $item->quantity }}"
-                                                                        name="quantity" min="1" max="100">
-                                                                    <button type="submit"
-                                                                        class="btn btn-primary btn-sm btn-actualizar mb-1">
-                                                                        <i class="fas fa-sync-alt">
-                                                                        </i></button>
+                                                                    <div class="container d-flex">
+                                                                        <input type="hidden" name="id"
+                                                                            value="{{ $item->id }}">
+                                                                        <input class="btn-cart input-cart" type="number"
+                                                                            value="{{ $item->quantity }}" name="quantity"
+                                                                            min="1" max="100">
+                                                                        <button class="btn-cart" type="submit"
+                                                                            class="btn btn-outline-dark">
+                                                                            <i class="fas fa-sync-alt"></i>
+                                                                        </button>
+                                                                    </div>
                                                                 </form>
 
-                                                                {{-- <form action="{{ route('cart.upitem') }}" method="POST">
-                                                                    @csrf
-                                                                    <input type="hidden" name="id" value="{{ $item->id }}">
-                                                                    <input type="submit" name="btn"
-                                                                        class="btn btn-block btn-sm btn-primary mb-2 boton"
-                                                                        value="+">
-                                                                </form>
-                                                                <form action="{{ route('cart.downitem') }}" method="POST">
-                                                                    @csrf
-                                                                    <input type="hidden" name="id" value="{{ $item->id }}">
-                                                                    <input type="submit" name="btn"
-                                                                        class="btn btn-block btn-sm btn-primary mb-2 boton"
-                                                                        value="-">
-                                                                </form> --}}
                                                             </td>
-                                                            <td>$ {{ $item->price * $item->quantity }}</td>
+                                                            {{-- subtotal --}}
+                                                            <td>${{ $item->price * $item->quantity }}</td>
                                                             <td>
                                                                 {{-- Elimina un producto del
                                                                 carro --}}
                                                                 <form method="POST"
                                                                     action="{{ route('cart.remouveitem') }}">
                                                                     @csrf @method('DELETE')
-                                                                    <input type="hidden" name="id" value="{{ $item->id }}">
-                                                                    <button type="submit" class="btn btn-outline"><i
+                                                                    <input type="hidden" name="id"
+                                                                        value="{{ $item->id }}">
+                                                                    <button type="submit"
+                                                                        class="btn btn-outline btn-cart"><i
                                                                             class="fas fa-trash-alt"></i></button>
                                                                 </form>
                                                             </td>
@@ -154,8 +152,9 @@
                                     @else
                                         <div class="jumbotron text-center">
                                             Tu carrito está vacío!!
-                                            <a class="btn btn-link btn-outline-primary ml-3"
-                                                href="{{ route('welcome') }}">Ir a la tienda</a>
+                                            <a class="btn btn-link btn-outline-dark ml-3 btn-cart"
+                                                href="{{ route('welcome') }}"><i class="fas fa-store"></i> Ir a la
+                                                tienda</a>
                                         </div>
                                     @endif
                                 </div>
@@ -167,14 +166,4 @@
             </div>
         </div>
     </div>
-@endsection
-@section('js')
-    <script>
-        Swal.fire(
-            'Bienvenido!',
-            'Click en el botón para cerrar!',
-            'success'
-        );
-
-    </script>
 @stop

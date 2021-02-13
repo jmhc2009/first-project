@@ -25,23 +25,6 @@
                     </div>
                 </div>
                 <br>
-                {{-- Vertical navbar --}}
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <div class="vertical-nav bg-white" id="sidebar">
-                                <div class="py-4 px-3 mb-4 bg-ligth">
-                                    <div class="media d-flex align-items-center">
-                                        <div class="media-body">
-                                            <h4 class="m-0">Juan</h4>
-                                            <p class="font-weight-normal text-muted mb-0">Web developer</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 {{-- Muestra el carrito --}}
                 @include('partials.session-status')
 
@@ -55,9 +38,11 @@
                     @foreach ($products as $product)
                         <div class="col-12 col-sm-6 col-lg-3 mb-4">
                             <div class="card card-product">
+                                {{-- muestra la pagina individual de cada producto --}}
                                 <a href="{{ route('product.show', $product) }}" class="#">
                                     <img class="card-img-top" src="{{ Storage::url($product->image) }}" alt="">
                                 </a>
+                                {{-- fin pagina individual --}}
                                 <div class="card-body">
                                     <h4 class="card-title">{{ $product->name }}</h4>
                                     <h5 class="card-text ">Precio $ {{ $product->price }}</h5>

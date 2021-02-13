@@ -27,8 +27,8 @@
                     <li class="footer-item">
                         <h3 class="has-text-weight-bold">Tu cuenta</h3>
                     </li>
-                    <li class="footer-item"><a class="footer-link" href="#">Iniciar sesión</a></li>
-                    <li class="footer-item"><a class="footer-link" href="#">Registro</a></li>
+                    <li class="footer-item"><a class="footer-link" href="{{ route('login') }}">Iniciar sesión</a></li>
+                    <li class="footer-item"><a class="footer-link" href="{{ route('register') }}">Registro</a></li>
 
                 </ul>
             </div>
@@ -48,8 +48,10 @@
                     <li class="footer-item">
                         <h3 class="has-text-weight-bold">Datos de contacto</h3>
                     </li>
-                    <li class="footer-item"><a class="footer-link" href="#">Teléfono: +56964144105</a></li>
-                    <li class="footer-item"><a class="footer-link" href="#">Huérfanos 1160 of 1101</a></li>
+                    <li class="footer-item"><a class="footer-link" href="#"><i class="fas fa-mobile-alt"></i>
+                            +56964144105</a></li>
+                    <li class="footer-item"><a class="footer-link" href="#"><i class="fas fa-envelope"></i>
+                            contacto@cafperfumes.cl</a></li>
 
                 </ul>
             </div>

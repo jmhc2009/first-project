@@ -237,6 +237,11 @@ return [
             'topnav' => true,
         ],
         [
+            'text' => 'Tienda',
+            'route' => 'welcome',
+            'icon'=>'fas fa-store'
+        ],
+        [
             'text' => 'Usuarios',
             'route' => 'user.index',
             'icon'=>'fas fa-users'

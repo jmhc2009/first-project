@@ -474,7 +474,7 @@ footer {
     outline: none;
 }
 
-.nav {
+.nav {    
     border-top: var(--border-dark-light);
     margin-top: 1rem;
     padding-top: 1rem;
@@ -1093,10 +1093,12 @@ footer {
     max-width: 100%;
 }
 
-.active {
+.active a {
+    color: #00C8C8;
     visibility: visible;
     opacity: 1;
     transition: visibility 1s, opacity 1s;
+    text-decoration: none;
 }
 
 .tabs-container {
@@ -1209,7 +1211,7 @@ footer {
 .btn {
     padding: 1rem;
     text-decoration: none;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     text-align: center;
     cursor: pointer;
     background: transparent;
@@ -1224,6 +1226,63 @@ footer {
     background: var(--primary);
     color: #ffffff;
     border: 0;
+}
+
+.btn-form{
+    padding: 0.50rem !important;
+    background: transparent;
+    border-radius: 3px;   
+    color: var(--dark);
+    border: solid 1px var(--dark);
+    max-height: 2.8em;
+    
+
+}
+.btn-form:hover {
+    background: var(--dark);
+    color: #ffffff;
+    border: solid 1px var(--dark);
+    text-decoration: none;
+}
+
+.btn-cart{
+    padding: 0.50rem !important;
+    background: transparent;
+    border-radius: 3px;   
+    color: var(--dark);
+    border: solid 1px var(--dark);
+    margin-left: 2px;
+    
+
+}
+.btn-cart:hover {
+    background: var(--dark);
+    color: #ffffff;
+    border: solid 1px var(--dark);
+    text-decoration: none;
+}
+.input-cart{    
+    color: #000000;
+    border: solid 1px var(--dark);
+    text-align: center;
+    max-width: 5em;
+    
+
+}
+
+.input-cart:hover {
+    background: transparent;
+    color: #000000;
+    border: solid 1px var(--dark);
+   
+
+}
+.titulos-cart {
+    color: green;
+}
+
+.fa-trash-alt:hover {
+    color: #ffffff;
 }
 
 .btn--mini-rounded {
@@ -1283,3 +1342,4 @@ footer {
     text-align: left;
     padding: 0 0 0 1rem;
 }
+
