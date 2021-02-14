@@ -9,9 +9,8 @@
                     <body class="bg-light">
                         <div class="container">
                             <div class="py-5 text-center">
-                                <img class="d-block mx-auto mb-4" src="/images/logo.jpg" alt="" width="200" height="200">
-                                <h2>Formulario de pedido</h2>
-                                <p class="lead">Por favor ingrese la siguente información para el envío de su pedido.</p>
+                                {{-- Inicio Formulario de pedido --}}
+                                <h1 class="lead">Por favor ingrese la siguente información para el envío de su pedido.</h1>
                             </div>
                             <!--Resumen del carrito-->
                             <div class="row">
@@ -36,13 +35,7 @@
                                                     {{ number_format($item->price * $item->quantity, 0) }}</span>
                                             </li>
                                         @endforeach
-                                        <li class="list-group-item d-flex justify-content-between bg-light">
-                                            <div class="text-success">
-                                                <h6 class="my-0">Codigo promoción</h6>
-                                                <small>CODEJEMPLO</small>
-                                            </div>
-                                            <span class="text-success">-$5</span>
-                                        </li>
+
                                         <li class="list-group-item d-flex justify-content-between">
                                             <span><strong>Neto</strong></span>
                                             <strong>{{ number_format(Cart::getSubTotal(), 0) }}</strong>
@@ -64,7 +57,7 @@
 
                                 <!--Formulario que solicita información del cliente-->
                                 <div class="col-md-8 order-md-1">
-                                    <h4 class="mb-3">Información para el envío y facturación</h4>
+
                                     <form method="POST" action="{{ route('order.store') }}" class="needs-validation"
                                         novalidate>
                                         @csrf
@@ -108,7 +101,7 @@
                                         <div class="mb-3">
                                             <label for="address">Dirección</label>
                                             <input type="text" class="form-control" id="address" name="address"
-                                                placeholder="Villa/Población   Calle N° Dpto." required>
+                                                placeholder="Avda./Calle N° Dpto." required>
                                             <div class="invalid-feedback">
                                                 Please enter your shipping address.
                                             </div>
@@ -123,7 +116,7 @@
                                                     <option>RM</option>
                                                 </select>
                                                 <div class="invalid-feedback">
-                                                    Please select a valid country.
+                                                    Por favor ingrese una región válida.
                                                 </div>
                                             </div>
                                             <div class="col-md-4 mb-3">
@@ -133,14 +126,14 @@
                                                     <option>San Bernardo</option>
                                                 </select>
                                                 <div class="invalid-feedback">
-                                                    Please provide a valid state.
+                                                    Por favor elija una ciudad.
                                                 </div>
                                             </div>
                                             <div class="col-md-3 mb-3">
-                                                <label for="zip">Zip</label>
+                                                <label for="zip">Villa/Población</label>
                                                 <input type="text" class="form-control" id="zip" placeholder="" required>
                                                 <div class="invalid-feedback">
-                                                    Zip code required.
+                                                    Ingrese la villa o población.
                                                 </div>
                                             </div>
                                             <div class="mb-3 col-12">
@@ -165,42 +158,62 @@
                                         </div>
                                         <!--Fin formulario despacho-->
                                         <hr class="mb-4">
+
                                         <!--Formas de pago-->
-                                        <h4 class="mb-3">Forma de pago</h4>
 
                                         <div class="d-block my-3">
-                                            <div class="custom-control custom-radio">
-                                                <input id="credit" name="paymentMethod" type="radio"
-                                                    class="custom-control-input" checked required>
-                                                <label class="custom-control-label" for="credit">Tarjeta de crédito</label>
-                                            </div>
-                                            <div class="custom-control custom-radio">
-                                                <input id="debit" name="paymentMethod" type="radio"
-                                                    class="custom-control-input" required>
-                                                <label class="custom-control-label" for="debit">Tarjeta de débito</label>
-                                            </div>
-                                            <div class="custom-control custom-radio">
-                                                <input id="transferencia" name="paymentMethod" type="radio"
-                                                    class="custom-control-input" required>
-                                                <label class="custom-control-label" for="transferencia">Transferencia
-                                                    bancaria</label>
-                                            </div>
-                                            <div class="custom-control custom-radio">
-                                                <input id="paypal" name="paymentMethod" type="radio"
-                                                    class="custom-control-input" required>
-                                                <label class="custom-control-label" for="paypal">PayPal</label>
+
+                                            {{-- Pago con debito/credito webpay --}}
+
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <img width="150px" class="img-webpay mb-4"
+                                                                src="/images/webpay.png" alt="webpay">
+                                                            <div class="custom-control custom-radio">
+                                                                <input id="credit" name="paymentMethod" type="radio"
+                                                                    class="custom-control-input" value="debito-credito"
+                                                                    checked required>
+                                                                <label class="custom-control-label mb-3"
+                                                                    for="credit">Tarjeta
+                                                                    de
+                                                                    debito/crédito</label>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <img width="100px" class="img-webpay mb-4"
+                                                                src="/images/khipu.png" alt="webpay">
+                                                            <div class="custom-control custom-radio">
+                                                                <input id="transferencia" name="paymentMethod" type="radio"
+                                                                    class="custom-control-input" value="transferencia"
+                                                                    checked required>
+                                                                <label class="custom-control-label mb-3"
+                                                                    for="transferencia">Transferencia</label>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <!--Fin formas de pago-->
 
-                                        <hr class="mb-4">
-
                                         <!--Boton ir a pagar-->
-                                        <button class="btn btn-primary btn-lg btn-block btn-form mb-5" type="submit">Ir a
-                                            pagar</button>
+                                        <button class="btn btn-primary btn-lg btn-block  btn-form mb-5 content-center mt-3"
+                                            type="submit">Ir a pagar</button>
                                     </form>
-                                    {{-- Procesar pago --}}
-                                    <hr class="mb-4">
+                                    {{-- Sdeguir comprando --}}
+                                    <div class="d-flex justify-content-end d-block mb-3">
+                                        <a class="btn btn-link" href="{{ route('welcome') }}"><i
+                                                class="fas fa-chevron-circle-left"></i>
+                                            Seguir comprando</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

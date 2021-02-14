@@ -58,7 +58,8 @@ class OrderController extends Controller
             $order->impuesto = Cart::getSubTotal()*0.19;
             $order->total = Cart::getSubTotal();
             $order->status = 0;
-            $order->cod = time();
+            $order->cod = time();   
+                  
 
             $order->save();
 

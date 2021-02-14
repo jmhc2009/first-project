@@ -10,7 +10,7 @@
                     <div class="card-body">
 
                         <h2 class="mb-3"><b>Pagar con webpay</b></h2>
-                        <img class="mb-3" src="/images/webpay.png" width="200px" alt="webpay">
+                        <img class="mb-3" src="/images/khipu.png" width="200px" alt="webpay">
                         <p><b>Valor</b>: $ {{ $order->total }}</p>
                         <p><b>Orden de compra</b>: {{ $order->cod }}</p>
 
