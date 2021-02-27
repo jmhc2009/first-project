@@ -24,37 +24,30 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+    <!--<link href="{{ asset('css/styles.css') }}" rel="stylesheet">-->
     <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" />
+          href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css"/>
 
-
-    {{-- estilos de la plantilla --}}
+    <!--Estilos de la plantilla-->
     <link href="{{ asset('css/bulma.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/material-design-iconic-font.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles2.css') }}" rel="stylesheet">
-
-
 </head>
 
 <body>
     <div id="app">
-        {{-- navbar superior --}}
-        {{-- @include('partials/navbarSuperior') --}}
-
-        {{-- navbar --}}
-        @include('partials/navbar2')
-
-        {{-- Contenido principal --}}
+        <body>
+        <!--navbar -->
+             @include('partials/navbar2')
+        </body>
+        <!--Contenido principal -->
         @yield('content')
 
-        <!--        Script js-->
+        <!--Script js-->
         @yield('js')
 
+        <!--Pie de página-->
+            @include('partials/footer2')
     </div>
-    <!--    Pie de página-->
-    @include('partials/footer2')
-
 </body>
-
 </html>

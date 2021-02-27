@@ -111,6 +111,8 @@
       <path value="$PROJECT_DIR$/vendor/freshwork/transbank" />
       <path value="$PROJECT_DIR$/vendor/transbank/transbank-sdk" />
       <path value="$PROJECT_DIR$/vendor/yoeunes/toastr" />
+      <path value="$PROJECT_DIR$/vendor/blenderdeluxe/khipu-laravel" />
+      <path value="$PROJECT_DIR$/vendor/blenderdeluxe/khipu" />
     </include_path>
   </component>
   <component name="PhpInterpreters">

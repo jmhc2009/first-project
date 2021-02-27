@@ -58,8 +58,8 @@ class OrderController extends Controller
             $order->impuesto = Cart::getSubTotal()*0.19;
             $order->total = Cart::getSubTotal();
             $order->status = 0;
-            $order->cod = time();   
-                  
+            $order->cod = time();
+
 
             $order->save();
 
@@ -74,12 +74,21 @@ class OrderController extends Controller
                         ]
                     ]);
             endforeach;
+
+            if(request('paymentMethod') == 'debito-credito'):
             //Redirige a pagar con webpay
-                    return view('webpay.checkout', compact('order'));
-        else:
-            //Redirige a la tienda a comprar
-            return redirect()->route('welcome');
+            return view('webpay.checkout', compact('order'));
+
+            elseif (request('paymentMethod') == 'transferencia'):
+                //Redirige a pagar con Khipu
+            return view('khipu.checkout', compact('order'));
+            endif;
+
+
         endif;
+        //Redirige a la tienda a comprar
+        return redirect()->route('welcome');
+
     }
 
     /**

@@ -2,17 +2,17 @@
     padding-top: 60px;
 } */
 /*carrito*/
-.fa-trash-alt{
+/*.fa-trash-alt{
     color: #60686f;
     font-size: large;
-}
+}*/
 
-.fa-shopping-cart{
+/*.fa-shopping-cart{
     color: #349793;
     font-size: medium;
     text-align: center;
     margin-top: 0.5em;
-}
+}*/
 
 .carrito{
     color: blanchedalmond;
@@ -31,7 +31,6 @@
         -ms-user-select: none;
         user-select: none;
  }
-
  @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
@@ -43,7 +42,7 @@
 }
 .fa-times{
     color: red;
-    font-size: xx-large;
+   /* font-size: xx-large;*/
 }
 
 .fa-exclamation-circle{
@@ -67,23 +66,19 @@
 
 /* .btn-actualizar{
     width: 5px !important;
-    height: 5px;    
-    
-    
-    
+    height: 5px;
+
+
+
 
 } */
 
 .alinear{
     display: flex;
-    text-justify: between;
+
     align-content: center;
 }
 
-/*contacto*/
-.contacto{
-    padding-top: 60px;
-}
 
 /*finish webpay*/
 .aprobado{
@@ -93,14 +88,6 @@
     color: red;
     font-size: 50px;
 }
-/* navbar */
 
-.navbar{
-    /* padding: 30px; */
-    margin-bottom: 90px;
-    width: 100%;
-
-
-}
 
 

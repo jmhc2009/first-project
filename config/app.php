@@ -176,6 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Darryldecode\Cart\CartServiceProvider::class,
         Yoeunes\Toastr\ToastrServiceProvider::class,
+        BlenderDeluxe\LaravelKhipu\KhipuServiceProvider::class,
 
     ],
 
@@ -229,6 +230,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
+        'Khipu' => BlenderDeluxe\LaravelKhipu\Facades\Khipu::class,
 
 
     ],

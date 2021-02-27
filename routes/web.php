@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 Auth::routes();
-//Rutas paginas de inicio 
+//Rutas paginas de inicio
 Route::get('/', 'HomeController@welcome')->name('welcome');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::view('/contacto', 'contact')->name('contact');
@@ -45,3 +45,8 @@ Route::delete('/cart-clear', 'CartController@clear')->name('cart.clear');
 Route::post('/checkout', 'CheckoutController@initTransaction')->name('checkout');
 Route::post('/checkout/webpay/response', 'CheckoutController@response')->name('checkout.webpay.response');
 Route::post('/checkout/webpay/finish', 'CheckoutController@finish')->name('checkout.webpay.finish');
+
+// routes Khipu
+Route::post('/payments', 'KhipuController@payments')->name('payments');
+// Route::post('/checkout/Khipu/response', 'KhipuController@response')->name('checkout.Khipu.response');
+// Route::post('/checkout/Khipu/finish', 'KhipuController@finish')->name('checkout.Khipu.finish');

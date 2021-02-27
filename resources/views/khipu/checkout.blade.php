@@ -9,13 +9,13 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <h2 class="mb-3"><b>Pagar con webpay</b></h2>
-                        <img class="mb-3" src="/images/khipu.png" width="200px" alt="webpay">
+                        <h2 class="mb-3"><b>Transferir con Khipu</b></h2>
+                        <img class="mb-3" src="https://s3.amazonaws.com/static.khipu.com/buttons/2015/150x50-transparent.png" alt="khipu-transferencia">
                         <p><b>Valor</b>: $ {{ $order->total }}</p>
                         <p><b>Orden de compra</b>: {{ $order->cod }}</p>
 
-
-                        <form method="POST" action="{{ route('checkout') }}">
+                        <!--Redirige al botón Khipu-->
+                       <form method="POST" action="{{ route('payments') }}">
                             @csrf
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 col-md-offset-3">
@@ -25,10 +25,10 @@
                                 </div>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+

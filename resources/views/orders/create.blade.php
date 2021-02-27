@@ -10,7 +10,7 @@
                         <div class="container">
                             <div class="py-5 text-center">
                                 {{-- Inicio Formulario de pedido --}}
-                                <h1 class="lead">Por favor ingrese la siguente información para el envío de su pedido.</h1>
+                                <h1 class="lead">Ingrese la siguente información para el envío de su pedido.</h1>
                             </div>
                             <!--Resumen del carrito-->
                             <div class="row">
@@ -47,7 +47,7 @@
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between">
                                             <span><strong>Total</strong></span>
-                                            <strong>$ {{ number_format(Cart::getSubTotal(), 0) }}</strong>
+                                            <strong>${{ number_format(Cart::getSubTotal(), 0) }}</strong>
                                         </li>
 
                                     </ul>
@@ -112,7 +112,7 @@
                                                 <label for="country">Región</label>
                                                 <select class="custom-select d-block w-100" id="region" name="region"
                                                     required>
-                                                    <option value="">Elejir...</option>
+                                                    <option value="" >Elejir...</option>
                                                     <option>RM</option>
                                                 </select>
                                                 <div class="invalid-feedback">
@@ -150,12 +150,6 @@
                                                 la misma que mi
                                                 dirección de facturación</label>
                                         </div>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="save-info">
-                                            <label class="custom-control-label" for="save-info">Guarde esta información para
-                                                la próxima
-                                                vez</label>
-                                        </div>
                                         <!--Fin formulario despacho-->
                                         <hr class="mb-4">
 
@@ -169,7 +163,7 @@
                                                 <div class="col-sm-6">
                                                     <div class="card">
                                                         <div class="card-body">
-                                                            <img width="150px" class="img-webpay mb-4"
+                                                            <img width="200px" class="img-webpay mb-3"
                                                                 src="/images/webpay.png" alt="webpay">
                                                             <div class="custom-control custom-radio">
                                                                 <input id="credit" name="paymentMethod" type="radio"
@@ -187,13 +181,14 @@
                                                 <div class="col-sm-6">
                                                     <div class="card">
                                                         <div class="card-body">
-                                                            <img width="100px" class="img-webpay mb-4"
-                                                                src="/images/khipu.png" alt="webpay">
+<!--                                                            <img width="100px" class="img-webpay mb-4"
+                                                                src="/images/khipu.png" alt="webpay">-->
+                                                            <img class="mb-4" src="https://s3.amazonaws.com/static.khipu.com/buttons/2015/150x50-transfer-transparent.png">
                                                             <div class="custom-control custom-radio">
                                                                 <input id="transferencia" name="paymentMethod" type="radio"
                                                                     class="custom-control-input" value="transferencia"
                                                                     checked required>
-                                                                <label class="custom-control-label mb-3"
+                                                                <label class="custom-control-label mb-2"
                                                                     for="transferencia">Transferencia</label>
 
                                                             </div>
