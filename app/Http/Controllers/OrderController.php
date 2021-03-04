@@ -9,8 +9,6 @@ use Illuminate\Http\Request;
 use Cart;
 use Illuminate\Support\Facades\Auth;
 
-
-
 class OrderController extends Controller
 {
     /**
@@ -83,8 +81,6 @@ class OrderController extends Controller
                 //Redirige a pagar con Khipu
             return view('khipu.checkout', compact('order'));
             endif;
-
-
         endif;
         //Redirige a la tienda a comprar
         return redirect()->route('welcome');

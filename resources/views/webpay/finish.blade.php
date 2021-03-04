@@ -17,7 +17,8 @@
 
                             <h3 class="text-center">El pago fue realizado con éxito. Gracias por tu compra!!</h3>
                             <div class="text-center m-5">
-                                <a class="text-center" href="{{ route('welcome') }}"><-Volver a la tienda</a>
+                                <a class="text-center" href="{{ route('welcome') }}"><i class="fas fa-store"></i> Ir a la
+                                                tienda</a>
                             </div>
                     @else
                         <div class="container">
@@ -28,19 +29,26 @@
                             </div>
                         </div>
                         <div class="text-center mb-5">
-                            <h3 class="text-center">Lo sentimos tu pago no pudo ser procesado!!</h3>
+                            <h2 class="text-center">Lo sentimos tu pago no pudo ser procesado!!</h2>
                             <h4>Orden de Compra {{ $order->cod }} rechazada</h4>
                         </div>
-                            <div class="container text-center">
-                                <h5>Las posibles causas de este rechazo son:</h5>
-                                <p>Error en el ingreso de su tarjeta Crédito/Débito (fecha y/o código de seguridad)</p>
-                                <p>Su tarjeta Crédito/Débito no cuenta con saldo suficiente</p>
-                                <p>Tarjeta aún no habilitada en el sistema financiero</p>
+                            <div class="container ">
+                                <div class="row">
+                                    <div class="col ml-5">
+                                            <p><b>Las posibles causas de este rechazo son:</b></p>
+                                            <p>Error en el ingreso de su tarjeta Crédito/Débito (fecha y/o código de seguridad)</p>
+                                            <p>Su tarjeta Crédito/Débito no cuenta con saldo suficiente</p>
+                                            <p>Tarjeta aún no habilitada en el sistema financiero</p>
+                                    </div>
+                                </div>
+
+
                             </div>
 
 
                         <div class="text-center m-5">
-                            <a class="text-center" href="{{ route('welcome') }}"><-Volver a la tienda</a>
+                            <a class="text-center" href="{{ route('welcome') }}"><i class="fas fa-store"></i> Ir a la
+                                                tienda</a>
                         </div>
                     @endif
                 </div>

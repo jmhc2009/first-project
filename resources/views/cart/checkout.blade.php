@@ -63,7 +63,7 @@
                                                                                            value="{{ $item->id }}">
 
                                                                                     <!--Actualizar cantidad de prod en el carro-->
-                                                                                    <input class="btn btn-cart input-cart btn-outline-dark" type="number"
+                                                                                    <input class="btn btn-cart input-cart btn-outline-dark d-flex justify-content-center" type="number"
                                                                                            value="{{ $item->quantity }}"
                                                                                            name="quantity"
                                                                                            min="1" max="100">

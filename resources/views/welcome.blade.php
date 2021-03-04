@@ -11,10 +11,10 @@
                    <div class="container navbar-top-item justify-content-end">
 
                        @if (count(Cart::getContent())>=1)
-                           <a href="{{ route('cart.checkout') }}" class="btn btn-link  ">
-                               <i class="zmdi zmdi-shopping-cart"></i><span
-                                   class="badge badge-danger">{{ count(Cart::getContent()) }}</span> Carrito
-                               <i class="zmdi zmdi-chevron-down"></i>
+                           <a href="{{ route('cart.checkout') }}" class="btn btn-link">
+                               <i class="zmdi zmdi-shopping-cart"> <span
+                                   class="badge badge-danger">{{ count(Cart::getContent()) }}</span> Carrito </i>
+
                            </a>
                        @endif
                    </div>
@@ -62,4 +62,14 @@
             </div>
         </div>
     </div>
+    @if(Session::has('status')):
+        <scrip>
+            toastr.success("{!!Session::get('status')!!}");
+        </scrip>
+    @endif
 @endsection
+@section('js')
+<!--    <script src="js/opciones.js"></script>-->
+
+
+@stop

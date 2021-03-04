@@ -1251,18 +1251,13 @@ footer {
 }
 
 .btn-cart{
-    /*width: 5em !important;
-    height: 5em !important;*/
+    width: 3em !important;
+    height: 2em !important;
     padding: 0.5rem !important;
     background: transparent;
     border-radius: 3px;
     color: var(--dark);
     border: solid 1px var(--dark);
-
-}
-.btn-actualizar{
-    margin-left: 2px;
-
 
 }
 
@@ -1273,6 +1268,11 @@ footer {
     text-decoration: none;
 
 }
+
+.btn-actualizar{
+    margin-left: 2px;
+}
+
 .btn-cart-realizar{
     text-align: center;
     padding: 0.5rem !important;
@@ -1291,16 +1291,10 @@ footer {
 }
 
 .input-cart{
-    width: 3em;
-    height: 2em;
-    padding: 0.5rem;
     color: #000000;
     border: solid 1px var(--dark);
     text-align: center;
-    max-width: 5em;
-
-
-
+    max-width: 6em;
 }
 
 .input-cart:hover {
@@ -1316,6 +1310,13 @@ footer {
 
 .fa-trash-alt:hover {
     color: #ffffff;
+}
+.cancel{
+    font-size: xxx-large;
+    color: red;
+}
+ir-tienda{
+    color: #3f474e;
 }
 
 .btn--mini-rounded {
