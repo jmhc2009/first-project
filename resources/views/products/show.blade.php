@@ -29,8 +29,8 @@
                             <input type="hidden" name="id" value="{{ $product->id }}">
                             {{-- <input class="btn btn-cart input-cart" type="number" value="{{ $product->quantity }}"
                                 name="quantity" min="1" max="100"> --}}
-                            <button class="btn btn-cart btn-form" type="submit">
-                                Agregar <i class="fas fa-shopping-cart"></i></button>
+                            <button class="btn btn-outline-dark btn-form " type="submit">
+                                <i class="fas fa-shopping-cart"></i> Agregar</button>
 
                         </form>
 

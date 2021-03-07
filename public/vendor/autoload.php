@@ -4,4 +4,8 @@
 
 require_once __DIR__ . '/composer/autoload_real.php';
 
+//Autoload Khipu
+
+require __DIR__ . '/vendor/autoload.php';
+
 return ComposerAutoloaderInitd38d060effd44ede1408dfbcaea0bed3::getLoader();

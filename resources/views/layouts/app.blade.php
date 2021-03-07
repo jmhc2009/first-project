@@ -13,8 +13,9 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/main.js') }}" defer></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+
 
 
     <!-- Fonts -->
@@ -24,37 +25,29 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" />
+    <!--<link href="{{ asset('css/styles.css') }}" rel="stylesheet">-->
 
 
-    {{-- estilos de la plantilla --}}
+    <!--Estilos de la plantilla-->
     <link href="{{ asset('css/bulma.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/material-design-iconic-font.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles2.css') }}" rel="stylesheet">
-
-
 </head>
 
 <body>
     <div id="app">
-        {{-- navbar superior --}}
-        {{-- @include('partials/navbarSuperior') --}}
-
-        {{-- navbar --}}
+        <!--navbar -->
         @include('partials/navbar2')
 
-        {{-- Contenido principal --}}
+        <!--Contenido principal -->
         @yield('content')
 
-        <!--        Script js-->
+        <!--Script js-->
         @yield('js')
 
+        <!--Pie de página-->
+        @include('partials/footer2')
     </div>
-    <!--    Pie de página-->
-    @include('partials/footer2')
-
 </body>
 
 </html>

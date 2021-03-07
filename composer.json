@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2.5",
         "almasaeed2010/adminlte": "~3.0",
+        "blenderdeluxe/khipu-laravel": "^1.0",
         "darryldecode/cart": "^4.2",
         "fideloper/proxy": "^4.2",
         "freshwork/transbank": "^1.2",
@@ -22,6 +23,7 @@
         "transbank/transbank-sdk": "1.8",
         "yoeunes/toastr": "^1.2"
     },
+    
     "require-dev": {
         "facade/ignition": "^2.0",
         "fzaninotto/faker": "^1.9.1",
@@ -67,4 +69,6 @@
             "@php artisan key:generate --ansi"
         ]
     }
+   
+  
 }

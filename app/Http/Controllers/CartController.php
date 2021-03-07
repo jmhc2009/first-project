@@ -30,8 +30,8 @@ class CartController extends Controller
             array('image'=>$product->image)
 
         );
-            /*toastr()->success("$product->name ¡se ha agregado al carrito!");*/
-        return redirect('/')->with("status","¡$product->name ¡se ha agregado al carrito!");
+            
+        return redirect('/')->with('status',"¡$product->name ¡se ha agregado al carrito!");
     }
 
 //Método remover un producto del carro
@@ -58,7 +58,7 @@ class CartController extends Controller
     // public function downitem(Request $request)
     // {
     //    $product = Product::find($request->id);
-    //    Cart::update($product->id,
+    //    Cart::update($product->id,    
     //         array('quantity'=>-1)
     //     );
     //    return back()->with('status',"¡Carrito actualizado!");

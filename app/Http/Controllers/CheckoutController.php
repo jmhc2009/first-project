@@ -3,7 +3,6 @@ namespace App\Http\Controllers;
 use App\Order;
 use Freshwork\Transbank\RedirectorHelper;
 use Freshwork\Transbank\WebpayPatPass;
-use Illuminate\Http\Request;
 use Freshwork\Transbank\WebpayNormal;
 use Cart;
 
@@ -12,7 +11,8 @@ use Cart;
 class CheckoutController extends Controller
 {
     public function initTransaction(WebpayNormal $webpayNormal)
-	{   /*Se obtien eltotal del carro y elnúmero de pedido*/
+	{
+	    /*Se obtien eltotal del carro y elnúmero de pedido*/
 	     if(Cart::getContent()->count()>0):
              $total = Cart::getSubTotal();
              $order=Order::all()->last();
@@ -57,4 +57,3 @@ class CheckoutController extends Controller
         return view('webpay.finish',compact('order'));
 	}
 }
-

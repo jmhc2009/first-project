@@ -11,7 +11,7 @@
 
             @if (count(Cart::getContent()))
                 <a href="{{ route('cart.checkout') }}" class="navbar-top-links">
-                    <i class="zmdi zmdi-shopping-cart"></i></i><span
+                    <i class="zmdi zmdi-shopping-cart"></i><span
                         class="badge badge-danger">{{ count(Cart::getContent()) }}</span> Carrito
                     <i class="zmdi zmdi-chevron-down"></i>
                 </a>
