@@ -11,7 +11,7 @@ class KhipuController extends Controller
 { //Método que inicia la transaccion en Khipu
     public function payments()
     {
-        //Se obtien el total del carro y el número de pedido
+        //Se obtiene el total del carro y el número de pedido
         if (Cart::getContent()->count() > 0):
             $total = Cart::getSubTotal();
             $order = Order::all()->last();

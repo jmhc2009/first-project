@@ -33,7 +33,6 @@ class OrderController extends Controller
         return view('orders.create');
 
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -42,14 +41,29 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        //Validación campos principales del formulario
+        request()->validate([
+            'name'=>'required',
+            'surname'=>'required',
+            'email'=>'required|email',
+            'phone'=>'required',
+            'address'=>'required',
+            'region'=>'required',
+            'city'=>'required',
+           
+        ]);
+
          //si existen productos en el carro, procesar pedido
         if(Cart::getContent()->count()>0):
             $order = new Order();
             $order->user_id = Auth::user()->id;
+            $order->receiver_name = request('name');
+            $order->receiver_surname = request('surname');
             $order->phone = request('phone');
             $order->address = request('address');
             $order->region = request('region');
             $order->city = request('city');
+            $order->villa = request('villa');
             $order->message = request('message');
             $order->paymentMethod = request('paymentMethod');
             $order->subTotal = Cart::getSubTotal()/1.19;
@@ -58,10 +72,10 @@ class OrderController extends Controller
             $order->status = 0;
             $order->cod = time();
 
-
+            //Guarda el pedido
             $order->save();
 
-          //Save orders, product and units in pivot table order_product
+            //Guarda el pedido en la tabla pivote order_product
             foreach(Cart::getContent() as $item):
                 $product_id = $item->id;
                 $units = $item->quantity;
@@ -73,15 +87,19 @@ class OrderController extends Controller
                     ]);
             endforeach;
 
-            if(request('paymentMethod') == 'debito-credito'):
-            //Redirige a pagar con webpay
+            //Selecciona metodo de pago webpay/khipu
+
+             //Redirige a pagar con webpay
+            if(request('paymentMethod') == 'debito-credito'):           
             return view('webpay.checkout', compact('order'));
 
-            elseif (request('paymentMethod') == 'transferencia'):
-                //Redirige a pagar con Khipu
+            //Redirige a pagar con Khipu
+            elseif (request('paymentMethod') == 'transferencia'):                
             return view('khipu.checkout', compact('order'));
+
             endif;
         endif;
+
         //Redirige a la tienda a comprar
         return redirect()->route('welcome');
 
@@ -106,7 +124,6 @@ class OrderController extends Controller
                     'units']
             ]);
     }
-
     /**
      * Show the form for editing the specified resource.
      *

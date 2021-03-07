@@ -1,23 +1,27 @@
 @extends('layouts.app')
-@section('content')
+@section('title', 'welcome')
 
+
+@section('content')
     {{-- carrusel --}}
     @include('partials/carrusel')
 
     <!-- Barra de navegacion secundaria -->
     @include('partials/navbarSecundaria')
 
-                    <!--Botón para ver el carrito -->
-                   <div class="container navbar-top-item justify-content-end">
+    <!--Botón para ver el carrito -->
+    <div class="container navbar-top-item justify-content-end">
 
-                       @if (count(Cart::getContent())>=1)
-                           <a href="{{ route('cart.checkout') }}" class="btn btn-link">
-                               <i class="zmdi zmdi-shopping-cart"> <span
-                                   class="badge badge-danger">{{ count(Cart::getContent()) }}</span> Carrito </i>
+        @if (count(Cart::getContent()) >= 1)
+            <a href="{{ route('cart.checkout') }}" class="btn btn-link">
+                <i class="zmdi zmdi-shopping-cart"> <span
+                        class="badge badge-danger">{{ count(Cart::getContent()) }}</span> Carrito </i>
 
-                           </a>
-                       @endif
-                   </div>
+            </a>
+        @endif
+    </div>
+
+    @include('partials/session-status')
 
     <!-- Sección de fotografías/productos -->
     <div class="container">
@@ -62,14 +66,5 @@
             </div>
         </div>
     </div>
-    @if(Session::has('status')):
-        <scrip>
-            toastr.success("{!!Session::get('status')!!}");
-        </scrip>
-    @endif
+
 @endsection
-@section('js')
-<!--    <script src="js/opciones.js"></script>-->
-
-
-@stop

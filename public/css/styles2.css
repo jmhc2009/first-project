@@ -1251,7 +1251,7 @@ footer {
 }
 
 .btn-cart{
-    width: 3em !important;
+    width: 4em !important;
     height: 2em !important;
     padding: 0.5rem !important;
     background: transparent;
@@ -1304,6 +1304,7 @@ footer {
 
 
 }
+
 .titulos-cart {
     color: green;
 }
@@ -1311,11 +1312,19 @@ footer {
 .fa-trash-alt:hover {
     color: #ffffff;
 }
+
+/* Pago cancelado */
 .cancel{
     font-size: xxx-large;
     color: red;
 }
-ir-tienda{
+/* Pago realizado */
+.pago-realizado{
+    font-size: xxx-large;
+    color: green;
+}
+/* Volver a la tienda */
+.ir-tienda{
     color: #3f474e;
 }
 
@@ -1377,7 +1386,8 @@ ir-tienda{
     padding: 0 0 0 1rem;
 }
 /*Carrito*/
-.pedido{
-    color: #7F7F80;
+.su-pedido{
+    color: #00C8C8;
 }
 
+    
