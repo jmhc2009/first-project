@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="card px-5">
+                <div class="card">
 
                     <body class="bg-light">
                         <div class="container">
@@ -18,13 +18,13 @@
                             <!--Resumen del carrito-->
                             <div class="row">
 
-                                <div class="col-md-4 order-md-2 mb-4">
+                                <div class="col-md-4 order-md-2 mb-4 is-hidden-mobile">
                                     <h4 class="d-flex justify-content-between align-items-center mb-3">
 
                                         <!--Vuelve al carrito-->
                                         @if (count(Cart::getContent()))
                                             <a class="su-pedido" href="{{ route('cart.checkout') }}">Su pedido <i
-                                                    class="fas fa-shopping-cart"></i><span
+                                                    class="zmdi zmdi-shopping-cart"></i><span
                                                     class="badge badge-danger">{{ count(Cart::getContent()) }}</span></a>
                                         @endif
                                     </h4>
@@ -33,6 +33,8 @@
                                             <li class="list-group-item d-flex justify-content-between lh-condensed">
                                                 <div>
                                                     <h6 class="my-0">{{ $item->name }}</h6>
+                                                    <img src="{{ asset('images/' . $item->attributes->image) }}"
+                                                            width="50px" alt="imagen producto">
                                                     <small class="text-muted">{{ $item->quantity }} x $
                                                         {{ number_format($item->price, 0) }}</small>
                                                 </div>
@@ -63,7 +65,7 @@
                                 <!--Formulario que solicita información del cliente-->
                                 <div class="col-md-8 order-md-1">
 
-                                    <form method="POST" action="{{ route('order.store') }}" class="needs-validation">
+                                    <form method="POST" action="{{ route('payments') }}" class="needs-validation">
                                         @csrf
                                         <div class="row">
 

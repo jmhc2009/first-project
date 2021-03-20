@@ -2,17 +2,17 @@
 @section('title', 'contacto')
 
 @section('content')
-    <div class="container contacto">
+    <div class="container contacto mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card mt-5 ">
-                    <div class="card-header">Contacto</div>
+                    <div class="card-header is-hidden-mobile">Contacto</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('contact') }}">
                             @csrf
-                            <div class="form-group row">
-                                <label for="text" class="col-md-4 col-form-label text-md-right">Nombre</label>
+                            <div class="form-group row mb-2">
+                                <label for="text" class="col-md-4 col-form-label text-md-left ">Nombre</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
@@ -25,8 +25,8 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="text" class="col-md-4 col-form-label text-md-right">Teléfono</label>
+                            <div class="form-group row mb-2">
+                                <label for="text" class="col-md-4 col-form-label text-md-left">Teléfono</label>
 
                                 <div class="col-md-6">
                                     <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror"
@@ -40,8 +40,8 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
+                            <div class="form-group row mb-2 ">
+                                <label for="email" class="col-md-4 col-form-label text-md-left ">Email</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
@@ -55,8 +55,8 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="message" class="col-md-4 col-form-label text-md-right">Mensaje</label>
+                            <div class="form-group row mb-2">
+                                <label for="message" class="col-md-4 col-form-label text-md-left">Mensaje</label>
 
                                 <div class="col-md-6">
                                     <textarea id="message" type="textarea"

@@ -24,8 +24,10 @@
                         <tbody>
                             <tr>
                                 <td>{{ $product->id }}</td>
+                                {{-- <td><a href="{{ route('product.show', $product) }}"><img src="{{ Storage::url($product->image) }}" width="100px" alt="Sin imagen"></a> --}}
                                 <td><a href="{{ route('product.show', $product) }}"><img
-                                            src="{{ Storage::url($product->image) }}" width="100px" alt="Sin imagen"></a>
+                                            src="{{ asset('images/' . $product->image) }}" width="100px"
+                                            alt="Sin imagen"></a>
                                 </td>
                                 <td>{{ $product->name }}</td>
                                 <td> $ {{ $product->price }}</td>

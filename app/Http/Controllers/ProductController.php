@@ -47,13 +47,23 @@ class ProductController extends Controller
     {
         $product = Product::create($request->validated());
 
+        // if($request->hasFile('image'))
+        // {
+        //     $product->image = $request->file('image')->store('public');
+        // }
+        // $product->save();
+
+        // return back()->with('status',"Producto creado con éxito!");
         if($request->hasFile('image'))
         {
-            $product->image = $request->file('image')->store('public');
+            $file = $request->image;
+            $file->move(public_path().'/images', $file->getClientOriginalName());
+            $product->image = $file->getClientOriginalName();
         }
-        $product->save();
+         $product->save();
 
-        return back()->with('status',"Producto creado con éxito!");
+         return back()->with('status',"Producto creado con éxito!");
+
     }
 
     /**

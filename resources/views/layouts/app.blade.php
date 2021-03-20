@@ -39,6 +39,7 @@
         <!--navbar -->
         @include('partials/navbar2')
 
+
         <!--Contenido principal -->
         @yield('content')
 

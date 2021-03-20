@@ -2,17 +2,17 @@
 @section('title', 'Crear producto')
 
 @section('content')
+    {{-- Mensaje --}}
+    @include('partials/session-status')
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Crear producto</div>
-                    {{-- Mensaje --}}
-                    @include('partials.session-status')
-
-                    {{-- formulario para crear producto --}}
-
                     <div class="card-body">
+
+                        {{-- formulario para crear producto --}}
                         <form method="POST" action="{{ route('product.store') }}" enctype="multipart/form-data">
                             @csrf
                             {{-- nombre --}}

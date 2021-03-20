@@ -5,31 +5,41 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-8 text-center">
                 <div class="card">
                     <div class="card-body">
+                        <p><b>El resumen de tu compra es:</b></p>
+                        <ul>
+                            <li>Valor total a pagar: $ {{ $order->total }}</li>
+                        </ul>
+                        <ul>
+                            Orden de compra: {{ $order->cod }}
+                        </ul>
 
-                        <h2 class="mb-3"><b>Transferir con Khipu</b></h2>
-                        <img class="mb-3" src="https://s3.amazonaws.com/static.khipu.com/buttons/2015/150x50-transparent.png" alt="khipu-transferencia">
-                        <p><b>Valor total a pagar</b>: $ {{ $order->total }}</p>
-                        <p><b>Orden de compra</b>: {{ $order->cod }}</p>
-                        <div class="boton">
-                            {{$boton ?? ''}}
-                        </div>
-
-                        <!--Redirige al botón Khipu-->
-                       <form method="POST" action="{{ route('payments') }}">
-                            @csrf
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 col-md-offset-3">
-                                    <button type="submit" class="btn btn-primary mb-3 text-center btn-form"> Generar botón</button>
+                        @if ($data)
+                            <div>
+                                <ul>
+                                    @foreach ($data as $name => $value)
+                                        {{-- <li><strong>{{ $name }}</strong> = {{ $value }}</li> --}}
+                                        <!--Le asignamos los valores-->
+                                        <?php $khipu_service->setParameter($name, $value); ?>
+                                    @endforeach
+                                </ul>
+                                <p><b>Presiona el botón y elige como quieres pagar</b></p>
+                                <div>
+                                    <!--Generamos el formulario.-->
+                                    {{ print $khipu_service->renderForm() }}
                                 </div>
                             </div>
-                        </form>
+
+                        @else
+                            <div>Aquí se generará el botón de pago.</div>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
     </div>
-@endsection
+    </div>
 
+@endsection

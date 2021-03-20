@@ -2,12 +2,12 @@
 @section('title', 'Product | ' . $product->name)
 
 @section('content')
-    <div class="container m-auto">
-        <div class="card mb-3" style="max-width: 900px;">
+    <div class="container m-auto d-flex justify-content-center">
+        <div class="card mb-3 " style="max-width: 900px;">
             <div class="row g-0">
                 <div class="col-md-6">
                     <!--Botones, eliminar, actualizar.                  -->
-                    <img width="400px" src="{{ Storage::url($product->image) }}">
+                    <img width="400px" src="{{ asset('images/' . $product->image) }}">
 
 
                 </div>
@@ -16,7 +16,7 @@
                     <div class="card-body">
                         <h3 class="card-title">{{ $product->name }}</h3>
                         <hr>
-                        <h4> $ {{ $product->price }}</h4>
+                        <h4>Precio $ {{ $product->price }}</h4>
                         <p>Precio retail : $ {{ $product->priceRetail }}</p>
                         <p>Stock disponible : {{ $product->stock }}</p>
                         <p>Categoría :{{ $product->category->name }}</p>

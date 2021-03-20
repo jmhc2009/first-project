@@ -398,16 +398,25 @@ footer {
     padding: 0.5rem;
     justify-content: space-around;
 }
+.boton-mobile{
+    max-height: 20%;
+    border: none;
+}
 
-.navbar-mobile {
+
+.nabvar-mobile {
+    width: 100%;
     background: var(--dark);
     display: flex;
     justify-content: space-between;
     padding: 10px;
+    margin-top: -45px;
     font-size: 1.5em;
     position: fixed;
     min-width: 100%;
     z-index: 200;
+
+
 }
 
 .navbar-mobile-link {
@@ -431,7 +440,7 @@ footer {
 
 .nav-menu-ul {
     margin: 1rem 0 1rem 0;
-    width: 100%;
+    /*width: 100%;*/
 }
 
 .nav-menu-item {
@@ -573,7 +582,7 @@ footer {
         list-style: none;
     }
 
-    .navbar-mobile {
+    .nabvar-mobile {
         display: none;
     }
 
@@ -1301,8 +1310,6 @@ footer {
     background: transparent;
     color: #000000;
     border: solid 1px var(--dark);
-
-
 }
 
 .titulos-cart {
@@ -1390,4 +1397,3 @@ footer {
     color: #00C8C8;
 }
 
-    

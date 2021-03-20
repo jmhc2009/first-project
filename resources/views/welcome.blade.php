@@ -34,11 +34,11 @@
                         <div class="col col-lg-3 column is-half column-full">
                             <div class="card">
                                 <span class="price">${{ $product->price }}</span>
-                                <img src="{{ Storage::url($product->image) }}" alt="Sin imagen">
+                                <img src="{{ asset('images/' . $product->image) }}" alt="Sin imagen">
                                 <div class="card-info">
                                     <h4 class="has-text-black has-text-centered has-text-weight-bold">
                                         {{ $product->name }}
-                                        {{ $product->price }}</h4>
+                                        ${{ $product->price }}</h4>
                                     <p class="has-text-centered">Classic casual t-shirt for women on the move.
                                         100%
                                         cotton.</p>

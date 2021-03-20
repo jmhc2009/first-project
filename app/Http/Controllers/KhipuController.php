@@ -16,18 +16,24 @@ class KhipuController extends Controller
             $total = Cart::getSubTotal();
             $order = Order::all()->last();
             $oc = $order->cod;
-            $return_url = 'http://cafperfumes.test/payments-finish';
-            $cancel_url = 'http://cafperfumes.test/payments-cancel';
-            $notify_url = 'http://cafperfumes.test/payments-finish';
+            $return_url = 'https://www.cafperfumes.cl/payments-finish';
+            $cancel_url = 'https://www.cafperfumes.cl/payments-cancel';
+            $notify_url = 'https://www.cafperfumes.cl/payments-finish';
+
         else:
             //Redirige a comprar
-            return redirect()->route('welcome');
+             return redirect()->route('welcome');
         endif;
 
+        $receiverId = 361023;
+        $secretKey = '0d72d27e73accf18a16ff148a03952a8ec47503b';
+
+
         $khipu = new Khipu();
+        khipu::authenticate($receiverId, $secretKey);
         $khipu_service = Khipu::loadService('CreatePaymentPage');
         $data = array(
-            'subject' => 'Pago de prueba',
+            'subject' => 'Pago CAFperfumes',
             'body' => 'Descripción del producto',
             'amount' => $total,
             // Página de exito
@@ -45,17 +51,25 @@ class KhipuController extends Controller
             'notify_url' => $notify_url,
         );
         // Recorremos los datos y se lo asignamos al servicio.
-        foreach ($data as $name => $value) {
-            $khipu_service->setParameter($name, $value);
+        // foreach ($data as $name => $value) {
+        //     $khipu_service->setParameter($name, $value);
+        // dd($data);
+        return view('khipu.checkout', compact('data', 'khipu_service','order'));
 
         }
+
+
+
+
+
+
         // Luego imprimimos el formulario html
-        return ($khipu_service->renderForm());
+        // return ($khipu_service->renderForm());
 
         /*return view('khipu.checkout', compact('order'));*/
 
         //dd(Khipu::loadService('CreateEmail')->consult());
-    }
+
 
     public function cancel()
     {

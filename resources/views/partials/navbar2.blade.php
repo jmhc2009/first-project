@@ -11,12 +11,14 @@
         <!--Botón para ver el carrito en barra nav superior -->
         <li class="navbar-top-item">
 
-            @if (count(Cart::getContent())>=1)
+            @if (count(Cart::getContent()) >= 1)
                 <a href="{{ route('cart.checkout') }}" class="navbar-top-links">
                     <i class="zmdi zmdi-shopping-cart"></i><span
                         class="badge badge-danger">{{ count(Cart::getContent()) }}</span> Carrito
                     <i class="zmdi zmdi-chevron-down"></i>
                 </a>
+            @else
+                <a href="{{ route('cart.checkout') }}" class="navbar-top-links"><i class="zmdi zmdi-shopping-cart"></i> Vacío</a>
             @endif
         </li>
     </ul>
@@ -24,13 +26,19 @@
 
 
 <!-- Barra de navegación principal  -->
-<nav class="navbar-principal mt-5 mb-4">
+<nav class="navbar navbar-principal shadow-sm pt-5 pb-5">
 
     <!--Navegación para dispositivos mobiles-->
     <header class="nabvar-mobile is-size-5-mobile">
         <a class="navbar-mobile-link has-text-white" href="#" id="btn-mobile"><i class="zmdi zmdi-menu"></i></a>
-        <a class="navbar-mobile-link has-text-white" href="{{route('welcome')}}">CAFperfumes</a>
-        <a class="navbar-mobile-link has-text-white" href=""><i class="zmdi zmdi-shopping-cart"> Vacio</i></a>
+        <a class="navbar-mobile-link has-text-white" href="{{ route('welcome') }}">CAFperfumes</a>
+        <!--Muestra el carrito en dispositivos moviles-->
+        @if(count(Cart::getContent())>=1)
+        <a class="navbar-mobile-link has-text-white" href="{{route('cart.checkout')}}"><i class="zmdi zmdi-shopping-cart"><span
+                        class="badge badge-danger">{{ count(Cart::getContent()) }}</span> </i></a>
+        @else
+            <a class="navbar-mobile-link has-text-white" href="{{route('cart.checkout')}}"><i class="zmdi zmdi-shopping-cart">Vacío</i></a>
+        @endif
     </header>
 
     <!--Buscador-->
@@ -41,16 +49,15 @@
                 <input type="text" class="form-group-input" placeholder="Buscar...">
             </div>
         </form>
-
-        <a class="is-hidden-mobile brand is-uppercase has-text-weight-bold has-text-dark"
-           href="{{ route('welcome') }}">CAFperfumes</a>
+        <a class="navbar-brand is-hidden-mobile brand is-uppercase has-text-weight-bold has-text-dark" href="{{ url('/') }}">
+            {{ config('app.name', 'CAFperfumes') }}
+        </a>
         <ul class="nav-menu-ul">
-            <li class="{{ request()->routeIs('welcome') ? 'active' : '' }} nav-menu-item"><a
+            <li class="{{ request()->routeIs('welcome') ? 'active' : '' }} nav-menu-item    "><a
                     href="{{ route('welcome') }}" class="nav-menu-link">Inicio</a>
             </li>
             <li class="nav-menu-item" id="men">
-                <a class="nav-menu-link link-submenu" href="#">Hombre <i
-                        class="zmdi zmdi-chevron-down"></i></a>
+                <a class="nav-menu-link link-submenu" href="#">Hombre <i class="zmdi zmdi-chevron-down"></i></a>
                 <div class="container-sub-menu">
                     <ul class="sub-menu-ul">
                         <li class="nav-menu-item ">
@@ -142,7 +149,9 @@
             </li>
 
             @if (auth()->check())
-                @if (auth()->user()->hasRoles('admin'))
+                @if (auth()
+        ->user()
+        ->hasRoles('admin'))
 
                     <li class="nav-menu-item"><a href="{{ route('home') }}" class="nav-menu-link">Home</a>
                     </li>
@@ -150,7 +159,7 @@
                 @endif
             @endif
 
-        <!-- Authentication Links/Invitados -->
+            <!-- Authentication Links/Invitados -->
             @guest
 
 
@@ -168,15 +177,15 @@
                 <!--Muestra el usuario que inició seción-->
                 <li class="nav-menu-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle nav-menu-link" href="#" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }} {{ Auth::user()->surname }}
                     </a>
 
                     <!--Botón para cerrar sesión-->
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item nav-menu-link" href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                          document.getElementById('logout-form').submit();">
+                            onclick="event.preventDefault();
+                                                                                                                                                                                                                                                                                                                                                                                                                      document.getElementById('logout-form').submit();">
                             {{ __('Cerrar sesión') }}
                         </a>
 
@@ -189,6 +198,3 @@
         </ul>
     </nav>
 </nav>
-
-
-

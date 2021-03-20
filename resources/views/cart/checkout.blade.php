@@ -3,8 +3,8 @@
 
 @section('content')
     <div class="container ">
-        <div class="row">
-            <div class="col ">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8 ">
                 <div class="card p-5">
 
                     <body class="bg-light">
@@ -20,8 +20,9 @@
 
                                         <!--Vuelve al carrito-->
                                         @if (count(Cart::getContent()))
-                                            <a href="{{ route('cart.checkout') }}" class="btn-link mt-3 mb-3 ">Su pedido
-                                                <i class="fas fa-shopping-cart"></i><span
+                                            <a href="{{ route('cart.checkout') }}"
+                                                class="btn-link mt-3 mb-3 is-hidden-mobile">Su pedido
+                                                <i class="zmdi zmdi-shopping-cart"></i><span
                                                     class="badge badge-danger">{{ count(Cart::getContent()) }}</span></a>
 
 
@@ -43,7 +44,7 @@
                                             <li class="list-group-item d-flex justify-content-between lh-condensed">
                                                 <div>
                                                     <h6 class="my-0">
-                                                        <img src="{{ Storage::url($item->attributes->image) }}"
+                                                        <img src="{{ asset('images/' . $item->attributes->image) }}"
                                                             width="50px" alt="imagen producto">
 
                                                         <span>
