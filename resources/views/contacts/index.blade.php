@@ -9,7 +9,7 @@
                     <div class="card-header is-hidden-mobile">Contacto</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('contact') }}">
+                        <form method="POST" action="{{ route('contact.store') }}">
                             @csrf
                             <div class="form-group row mb-2">
                                 <label for="text" class="col-md-4 col-form-label text-md-left ">Nombre</label>
@@ -74,11 +74,24 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
                                     <button type="submit" class="btn btn-outline-dark btn-cart-realizar mt-3">
-                                        Enviar
+                                        Enviar mensaje
                                     </button>
                                 </div>
                             </div>
                         </form>
+                        @if (session('info'))
+                            <script>
+                                Swal.fire({
+                                    toast: true,
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    text: '{{ session('info') }}',
+                                    showConfirmButton: false,
+                                    timer: 3000,
+                                });
+
+                            </script>
+                        @endif
                     </div>
                 </div>
             </div>

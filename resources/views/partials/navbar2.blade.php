@@ -18,7 +18,8 @@
                     <i class="zmdi zmdi-chevron-down"></i>
                 </a>
             @else
-                <a href="{{ route('cart.checkout') }}" class="navbar-top-links"><i class="zmdi zmdi-shopping-cart"></i> Vacío</a>
+                <a href="{{ route('cart.checkout') }}" class="navbar-top-links"><i
+                        class="zmdi zmdi-shopping-cart"></i> Vacío</a>
             @endif
         </li>
     </ul>
@@ -33,11 +34,13 @@
         <a class="navbar-mobile-link has-text-white" href="#" id="btn-mobile"><i class="zmdi zmdi-menu"></i></a>
         <a class="navbar-mobile-link has-text-white" href="{{ route('welcome') }}">CAFperfumes</a>
         <!--Muestra el carrito en dispositivos moviles-->
-        @if(count(Cart::getContent())>=1)
-        <a class="navbar-mobile-link has-text-white" href="{{route('cart.checkout')}}"><i class="zmdi zmdi-shopping-cart"><span
+        @if (count(Cart::getContent()) >= 1)
+            <a class="navbar-mobile-link has-text-white" href="{{ route('cart.checkout') }}"><i
+                    class="zmdi zmdi-shopping-cart"><span
                         class="badge badge-danger">{{ count(Cart::getContent()) }}</span> </i></a>
         @else
-            <a class="navbar-mobile-link has-text-white" href="{{route('cart.checkout')}}"><i class="zmdi zmdi-shopping-cart">Vacío</i></a>
+            <a class="navbar-mobile-link has-text-white" href="{{ route('cart.checkout') }}"><i
+                    class="zmdi zmdi-shopping-cart">Vacío</i></a>
         @endif
     </header>
 
@@ -49,7 +52,8 @@
                 <input type="text" class="form-group-input" placeholder="Buscar...">
             </div>
         </form>
-        <a class="navbar-brand is-hidden-mobile brand is-uppercase has-text-weight-bold has-text-dark" href="{{ url('/') }}">
+        <a class="navbar-brand is-hidden-mobile brand is-uppercase has-text-weight-bold has-text-dark"
+            href="{{ url('/') }}">
             {{ config('app.name', 'CAFperfumes') }}
         </a>
         <ul class="nav-menu-ul">
@@ -144,8 +148,8 @@
                     </div>
                 </div>
             </li>
-            <li class="{{ request()->routeIs('contact') ? 'active' : '' }} nav-menu-item"><a
-                    href="{{ route('contact') }}" class="nav-menu-link">Contacto</a>
+            <li class="{{ request()->routeIs('contact.index') ? 'active' : '' }} nav-menu-item"><a
+                    href="{{ route('contact.index') }}" class="nav-menu-link">Contacto</a>
             </li>
 
             @if (auth()->check())
@@ -185,7 +189,7 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item nav-menu-link" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                                      document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                                          document.getElementById('logout-form').submit();">
                             {{ __('Cerrar sesión') }}
                         </a>
 

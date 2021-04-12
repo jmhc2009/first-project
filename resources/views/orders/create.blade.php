@@ -34,7 +34,7 @@
                                                 <div>
                                                     <h6 class="my-0">{{ $item->name }}</h6>
                                                     <img src="{{ asset('images/' . $item->attributes->image) }}"
-                                                            width="50px" alt="imagen producto">
+                                                        width="50px" alt="imagen producto">
                                                     <small class="text-muted">{{ $item->quantity }} x $
                                                         {{ number_format($item->price, 0) }}</small>
                                                 </div>
@@ -145,12 +145,17 @@
                                         <div class="row">
                                             <div class="col-md-4 mb-3">
                                                 <label for="country">Región *</label>
+
                                                 <select
                                                     class="custom-select d-block w-100 form-control @error('region') is-invalid @enderror"
                                                     id="region" name="region" required>
                                                     <option value="{{ old('region') }}">Elejir...</option>
-                                                    <option>RM</option>
+                                                    @foreach ($regiones as $region)
+                                                        <option>{{ $region['codigo'] }}.-{{ $region['nombre'] }}
+                                                        </option>
+                                                    @endforeach
                                                 </select>
+
                                                 @if ($errors->has('region'))
                                                     <div class="invalid-feedback">
                                                         <strong>{{ $errors->first('region') }}</strong>
@@ -165,7 +170,9 @@
                                                     class="custom-select d-block w-100 form-control @error('city') is-invalid @enderror"
                                                     id="city" name="city" required>
                                                     <option value="{{ old('city') }}">Elejir...</option>
-                                                    <option>San Bernardo</option>
+                                                    @foreach ($comunas as $comuna)
+                                                        <option>{{ $comuna['nombre'] }}</option>
+                                                    @endforeach
                                                 </select>
                                                 @if ($errors->has('city'))
                                                     <div class="invalid-feedback">

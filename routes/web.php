@@ -1,6 +1,9 @@
 <?php
+
+use App\Contact;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,15 +21,17 @@ Auth::routes();
 //Rutas paginas de inicio/home
 Route::get('/', 'HomeController@welcome')->name('welcome');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::view('/contacto', 'contact')->name('contact');
+// Route::get('/contacto','HomeController@contact')->name('contact');
+
+//Route::view('/contacto', 'contact')->name('contact');
 /*
 |--------------------------------------------------------------------------
 | Ruta que crea el storage link
 |--------------------------------------------------------------------------
 */
-Route::get('/storage-link', function(){
-        Artisan::call('storage:link');
-});
+// Route::get('/storage-link', function(){
+//         Artisan::call('storage:link');
+// });
 /*
 |--------------------------------------------------------------------------
 | Routes Resource
@@ -40,6 +45,8 @@ Route::resource('product', 'ProductController');
 Route::resource('category','CategoryController');
 //Rutas pedidos
 Route::resource('order','OrderController');
+//Rutas contactos
+Route::resource('contact', 'ContactController');
 /*
 |--------------------------------------------------------------------------
 | Routes carro de compras
@@ -74,3 +81,12 @@ Route::get('/payments-finish', 'KhipuController@finish')->name('finish');
 
 // Route::post('/checkout/Khipu/response', 'KhipuController@response')->name('checkout.Khipu.response');
 // Route::post('/checkout/Khipu/finish', 'KhipuController@finish')->name('checkout.Khipu.finish');
+
+/*
+|--------------------------------------------------------------------------
+| Routes Emails
+|--------------------------------------------------------------------------
+*/
+// Route::get('contacts', function(){    
+
+// })->name('contacts.index');

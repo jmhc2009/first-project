@@ -8,6 +8,7 @@ use App\Product;
 use Illuminate\Http\Request;
 use Cart;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 class OrderController extends Controller
 {
@@ -30,7 +31,13 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return view('orders.create');
+        $respuesta = Http::get('https://apis.digital.gob.cl/dpa/regiones');
+        $regiones = $respuesta->json();
+
+        $respuesta = Http::get('https://apis.digital.gob.cl/dpa/comunas');
+        $comunas = $respuesta->json();
+
+        return view('orders.create',compact( 'regiones','comunas'));
 
     }
     /**
