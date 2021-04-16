@@ -51,7 +51,7 @@ class ContactController extends Controller
         Mail::to('contacto@socoprose.cl')->send($correo);
         
         
-         return back()->with('info', 'Tu mensaje ha sido enviado con éxito');
+        return back()->with('info', 'Tu mensaje ha sido enviado con éxito');
     }
 
     /**

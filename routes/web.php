@@ -3,6 +3,7 @@
 use App\Contact;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/storage-link', function(){
 //         Artisan::call('storage:link');
 // });
+Route::get('link', function(){
+    Artisan::call('storage:link');
+})
 /*
 |--------------------------------------------------------------------------
 | Routes Resource
@@ -83,10 +87,3 @@ Route::get('/payments-finish', 'KhipuController@finish')->name('finish');
 // Route::post('/checkout/Khipu/finish', 'KhipuController@finish')->name('checkout.Khipu.finish');
 
 /*
-|--------------------------------------------------------------------------
-| Routes Emails
-|--------------------------------------------------------------------------
-*/
-// Route::get('contacts', function(){    
-
-// })->name('contacts.index');

@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h3>Contacto desde cafperfumes.cl</h3>
+    <h3>Información de contacto</h3>
     <p><strong>Nombre:</strong> {{ $contacto['name'] }}</p>
     <p><strong>Teléfono:</strong> {{ $contacto['phone'] }}</p>
     <p><strong>Email:</strong> {{ $contacto['email'] }}</p>
